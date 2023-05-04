@@ -3,6 +3,16 @@
 <?php $this->load->view('tpl_sidebar'); ?>
 
 <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Provinsi
+        <small>Nama Provinsi</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard"></i> Admin</li>
+        <li>Provinsi</li>
+      </ol>
+    </section>
     <section class="content" id="section-data">
         <div class="panel panel-default wrap-table">
             <br>

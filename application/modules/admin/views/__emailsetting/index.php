@@ -4,6 +4,16 @@
 <?php $this->load->view('tpl_sidebar'); ?>
 
 <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Setting Email
+        <small>Pengaturan Setting Email</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard"></i> Admin</li>
+        <li>Setting Email</li>
+      </ol>
+    </section>
     <section class="content" id="section-data">
         <div class="panel panel-default wrap-table">
             <div class="panel-body">

@@ -3,6 +3,16 @@
 <?php $this->load->view('tpl_sidebar'); ?>
 
 <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Group
+        <small>Jenis Group</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard"></i> Admin</li>
+        <li>Group</li>
+      </ol>
+    </section>
     <section class="content" id="section-data">
         <div class="panel panel-default wrap-table">
             <div class="panel-body">
