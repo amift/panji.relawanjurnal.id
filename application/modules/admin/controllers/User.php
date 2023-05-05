@@ -63,7 +63,7 @@ class User extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id],'id, username, name, email, provinsi_id');        
+	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, provinsi_id');        
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];

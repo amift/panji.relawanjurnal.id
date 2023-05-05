@@ -4,7 +4,6 @@ class Indeksasi_model extends MY_Model {
     
     var $table  = 'indeksasi';
 
-    var $column_field  = array('name','keterangan'); 
     var $column_order  = array(NULL,NULL,'name','keterangan'); 
     var $column_search = array('name','keterangan'); 
     var $order         = array('id' => 'ASC');

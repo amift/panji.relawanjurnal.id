@@ -56,7 +56,7 @@ class Indeksasi extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id],$this->m_data->column_field);        
+	        $data = $this->m_data->get_it(['id'=>$id], 'id, name, keterangan');        
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];
