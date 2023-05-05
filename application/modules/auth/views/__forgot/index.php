@@ -29,11 +29,11 @@
                     <div class="form-body">
                         <hr>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="form-group text-center">
                                     <?php
                                         echo "Email";
-                                        echo form_input('input_email', set_value('input_email', '', FALSE), 'class="form-control" ');
+                                        echo form_input('input_email', set_value('input_email', '', FALSE), 'class="form-control text-center" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>
