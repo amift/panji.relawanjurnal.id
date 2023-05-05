@@ -1,12 +1,6 @@
     var save_label;
     var table;
 
-    console.log(' app.js')
-
-    $('.navbar-nav li').on('click', function(){
-        console.log('heellll')
-    })
-
     function mode_default(){
         $('#form')[0].reset();
         $('#section-data').fadeIn(200);
@@ -37,7 +31,7 @@
                         text    : 'Sesi anda sudah berakhir, Silahkan login kembali',
                         type    : 'warning'
                     }).then((result) => {
-                        window.location.href = "<?php echo base_url('admin') ?>";
+                        window.location.href = location.host;
                     });
                 },
             },
@@ -99,7 +93,7 @@
                     reload();
                     mode_default();
                     new PNotify({
-                      title:"Data User",
+                      title:"Informasi",
                       text: method+' berhasil',
                       type: "success",
                       delay:'2000',
@@ -166,7 +160,7 @@
                             if(callback.status){ 
                                 reload();
                                 new PNotify({
-                                  title:"Data User",
+                                  title:"Informasi",
                                   text: 'Hapus data berhasil',
                                   type: "success",
                                   delay:'2000',
@@ -174,7 +168,11 @@
                                   styling: "bootstrap3"
                                 });
                             }else{
-                                alert('Error... ');
+                                Swal({
+                                    title   : 'Peringatan',
+                                    text    : 'Terjadi kesalahan callback status',
+                                    type    : 'danger'
+                                });
                             }
                         }else{
                             Swal({
