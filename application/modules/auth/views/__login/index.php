@@ -17,7 +17,7 @@
       <!-- Article main content -->
       <article class="col-xs-12 maincontent">
         
-        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
           <div class="panel panel-default">
             <div class="panel-body">
               <h3 class="thin text-center">Login untuk masuk ke sistem</h3>
@@ -53,18 +53,18 @@
                     </div>
                 </form>
 
-                <hr>
-                <div class="row">
-                  <div class="col-lg-8">
-                    <b><a href="<?php echo base_url('forgot') ?>">Lupa Password?</a></b>
-                  </div>
-                  <div class="col-lg-4 text-right">
-                      <button type="button" class="btn btn-action" id="btnLogin" onclick="login()">
-                          <i class="fa fa-key"></i>
-                          Login
-                      </button>                    
-                  </div>
-                </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-7 text-center">
+              <b><a href="<?php echo base_url('forgot') ?>">Lupa Password?</a></b>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="btn btn-action" id="btnLogin" onclick="login()">
+                    <i class="fa fa-key"></i>
+                    Login
+                </button>                    
             </div>
           </div>
 
