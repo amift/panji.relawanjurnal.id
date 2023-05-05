@@ -30,10 +30,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
+                                <div class="form-group text-center">
                                     <?php
                                         echo "Username / Email";
-                                        echo form_input('input_username', set_value('input_username', '', FALSE), 'class="form-control" ');
+                                        echo form_input('input_username', set_value('input_username', '', FALSE), 'class="form-control text-center" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>
@@ -41,10 +41,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
+                                <div class="form-group text-center">
                                     <?php
                                         echo "Password";
-                                        echo form_password('input_password', set_value('input_password', '', FALSE), 'class="form-control" ');
+                                        echo form_password('input_password', set_value('input_password', '', FALSE), 'class="form-control text-center" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>
