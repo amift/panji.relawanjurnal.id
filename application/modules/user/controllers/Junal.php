@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Groups extends MY_Controller {
+class Jurnal extends MY_Controller {
 
 	public function __construct(){
 		parent::__construct();
     	$this->load->helper(['form','string']);
 			$this->load->library(['form_validation']);
 
-      $this->modul='admin';
+      $this->modul='user';
       $this->class=strtolower(__CLASS__);
    
       $this->loginCheck();
       $this->privilegeCheck($this->modul);
 
-      $this->load->model('Groups_model','m_data');
+      $this->load->model('Jurnal_model','m_data');
     }
 
 		public function index(){
