@@ -1,8 +1,8 @@
     var save_label;
     var table;
 
+    console.log(' app.js')
 
-    console.log('yuhu')
     $('.navbar-nav li').on('click', function(){
         console.log('heellll')
     })
@@ -71,6 +71,10 @@
     function save(){
         var url, method;
 
+        if ( typeof before_save == 'function' ) { 
+            before_save();
+        }
+
         mode_edit();
         $('#btnSave').html('<i class="fa fa-spinner fa-spin"></i> Menyimpan'); 
         $('#btnSave').attr('disabled',true); 
@@ -102,6 +106,9 @@
                       stack: stack_center,
                       styling: "bootstrap3"
                     });
+                    if ( typeof success_save == 'function' ) { 
+                        success_save();
+                    }
                 }else{
                     $.each(callback.errors, function(key, value){
                         $('[name="'+key+'"]').addClass('is-invalid'); 
@@ -112,6 +119,9 @@
                         }
                     });
                     $('.invalid-feedback').show().delay(2000).fadeOut('slow');
+                    if ( typeof failed_save == 'function' ) { 
+                        failed_save();
+                    }
                 }
                 $('#btnSave').html('<i class="fa fa-save"></i> Simpan');
                 $('#btnSave').attr('disabled',false);
@@ -121,6 +131,9 @@
                 alert('Error adding / update data');
                 $('#btnSave').html('<i class="fa fa-save"></i> Simpan');
                 $('#btnSave').attr('disabled',false);
+                if ( typeof error_save == 'function' ) { 
+                    error_save();
+                }
             }
         });
 
@@ -131,8 +144,6 @@
             $(this).removeClass('is-valid is-invalid');
         });
     }
-
-
 
     function del(id){
         Swal({

@@ -55,9 +55,6 @@ class Emailtemplate extends MY_Controller {
 		}
 
 	  public function edit($id=null){
-        $_SESSION['KCFINDER']['disabled']  = false;
-        $_SESSION['KCFINDER']['uploadURL'] = PUBLIC_URL;
-        $_SESSION['KCFINDER']['uploadDir'] = PUBLIC_DIR;
 	      if ($this->input->is_ajax_request()) {      
 	        $data = $this->m_data->get_it(['id'=>$id],'id, name, template, tags');        
 	        echo json_encode($data);

@@ -1,4 +1,7 @@
 <script type="text/javascript">
+
+    console.log(' index_js.js')
+
     $(document).ready(function() {
         list();
         mode_default();        
@@ -44,14 +47,15 @@
 
     function invoke_editor(){      
 
-        if (CKEDITOR.instances['template']){
-          CKEDITOR.instances['template'].destroy(true)
-        }
-
         CKEDITOR.replace('template', {
             toolbar : 'Basic',
             filebrowserBrowseUrl: "<?php echo base_url()?>assets/backend/kcfinder/browse.php?type=files"
         });
+
+    }
+
+    function before_save(){
+        $('[name="input_template"]').val(CKEDITOR.instances['template'].getData());
     }
 
 </script>
