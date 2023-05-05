@@ -48,6 +48,9 @@ class Login extends MY_Controller {
             if (empty($result)) {
 	           $invoke['login_failed'] = TRUE;
 	          }else{
+              $_SESSION['KCFINDER']['disabled']  = false;
+              $_SESSION['KCFINDER']['uploadURL'] = PUBLIC_URL;
+              $_SESSION['KCFINDER']['uploadDir'] = PUBLIC_DIR;              
 							$mysession = array(
 								'is_login'       => 'logged',
 								'ses_id'         => $result->id,

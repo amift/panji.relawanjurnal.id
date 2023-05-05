@@ -11,11 +11,9 @@ class Logout extends CI_Controller {
 	}
 
 	public function index(){
-		if ( $this->config->item('site_KCFINDER')==true ) {
-			$_SESSION['KCFINDER']['disabled']  = true;
-			$_SESSION['KCFINDER']['uploadURL'] = '';
-			$_SESSION['KCFINDER']['uploadDir'] = '';
-		}
+		$_SESSION['KCFINDER']['disabled']  = true;
+		$_SESSION['KCFINDER']['uploadURL'] = '';
+		$_SESSION['KCFINDER']['uploadDir'] = '';
 		$this->session->sess_destroy();
 
 		redirect(base_url());
