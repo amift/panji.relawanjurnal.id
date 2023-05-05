@@ -24,7 +24,7 @@
 
     function list(){
         table = $('#data_table').DataTable({
-            aLengthMenu: [[10, 20, 50], [10, 20, 50]],
+            aLengthMenu: [[5, 10, 20, 50], [5, 10, 20, 50]],
             processing: true,
             serverSide: true,
             order: [],
