@@ -23,7 +23,7 @@
                         <tr>               
                             <th style="width:20px">No</th>
                             <th style="width:70px">Action</th>
-                            <th>Name</th>
+                            <th>Name Group</th>
                             <th>Keterangan</th>
                         </tr>
                     </thead>
@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <?php
-                                        echo "Nama";
+                                        echo "Nama Group";
                                         echo form_input('input_name', set_value('input_name', '', FALSE), 'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>

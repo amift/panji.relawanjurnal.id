@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <?php
-                                        echo "Name Indeksasi";
+                                        echo "Frekuensi Terbitan";
                                         echo form_input('input_nama', set_value('input_nama', '', FALSE), 'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
