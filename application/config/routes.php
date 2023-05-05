@@ -56,7 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin']          = 'admin/home';
 $route['admin/user']     = 'admin/user';
 
-
 $route['user']           = 'user/home/index';
 
 $route['home']           = 'web/home';

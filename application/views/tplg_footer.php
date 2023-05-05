@@ -12,14 +12,14 @@
         </div>
         <div class="col-md-4 panel contact">
           <h3 class="panel-title">
-          Contact Info
+          Kontak
           </h4>
           <div class="panel-body">
-            <p>Lorem ipsum dolor amet, consectetur adipiscing ipsum dolor.</p>
+            <p>Anda dapat menghubungi kami melalui.</p>
             <ul>
-              <li><i class="fa fa-phone"></i>1-123-345-6789</li>
-              <li><a href="#"><i class="fa fa-envelope-o"></i> contact@webthemez.com</a></li>
-              <li><i class="fa fa-flag"></i>123 Smith Drive, Baltimore, MD 21212</li>
+              <li><i class="fa fa-phone"></i> </li>
+              <li><a href="#"><i class="fa fa-envelope-o"></i> contact@relwanjurnal.id</a></li>
+              <li><i class="fa fa-flag"></i> Gang Masjid Al Huda II, RT 01 RW 18, Gamping Kidul, Ambarketawang, Kec Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55294</li>
             </ul>
           </div>
         </div>
