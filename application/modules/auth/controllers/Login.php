@@ -58,10 +58,10 @@ class Login extends MY_Controller {
 								'ses_username'   => $result->username,
 								'ses_level' 	   => $result->level,
 							);
+              $this->m_data->update(['last_login' => date('Y-m-d H:i:s')], ['id' => $result->id]);
 							$this->session->set_userdata($mysession);	          	
 	          }
-            // debugme($result);
-
+            
             $invoke['status'] = TRUE;
             $this->output->set_content_type('application/json')->set_output(json_encode($invoke));
           }

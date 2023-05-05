@@ -28,6 +28,7 @@
                             <th>Email</th>
                             <th>Telepon</th>
                             <th>Provinsi</th>
+                            <th>Last Login</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

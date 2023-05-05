@@ -44,6 +44,7 @@ class User extends MY_Controller {
 							$row[]  = $db_data->email;
 							$row[]  = $db_data->telepon;
 							$row[]  = $db_data->provinsi_nama;
+							$row[]  = $db_data->last_login;
 							
 							$data[]  = $row;
 						}
