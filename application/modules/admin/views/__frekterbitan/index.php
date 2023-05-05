@@ -5,12 +5,12 @@
 <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Lisensi
-        <small>Jenis Lisensi</small>
+        Frekeuansi Terbitan
+        <small>Frekeuansi Terbitan Journal</small>
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Admin</li>
-        <li>Lisensi</li>
+        <li>Frekeuansi Terbitan</li>
       </ol>
     </section>    
     <section class="content" id="section-data">
@@ -23,7 +23,7 @@
                         <tr>               
                             <th style="width:20px">No</th>
                             <th style="width:70px">Action</th>
-                            <th>Jenis Lisensi</th>
+                            <th>Jadwal terbit</th>
                             <th>Keterangan</th>
                         </tr>
                     </thead>
