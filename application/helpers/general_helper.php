@@ -89,7 +89,7 @@ if ( ! function_exists('debugme')) {
     function debugme($param, $halt=FALSE, $caption=null) {
         echo "<pre>";
         if ($caption!=null) {
-            echo $caption.' ';
+            echo '<b>'.$caption.'</b><br>';
         }
         print_r($param);
         echo "</pre>";
