@@ -29,8 +29,7 @@
             success: function(callback){
                 $('[name="input_id"]').val(callback.id);
 
-                $('[name="input_name"]').val(callback.name);
-                $('[name="input_description"]').val(callback.description);
+                $('[name="input_nama"]').val(callback.nama);
             },
             error: function (jqXHR, textStatus, errorThrown){
                 alert('Error get data from ajax');
