@@ -31,6 +31,9 @@
             overflow-x: scroll;
             overflow-y: hidden;
             white-space:nowrap;
+        }
+        .invalid-feedback{
+          color: Red;
         }        
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
