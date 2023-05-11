@@ -23,4 +23,32 @@ class User_model extends MY_Model {
 		return $sql;
 	}
 
+
+	public function get_it_all(){
+		$this->db->select('*');
+		$this->db->from($this->table);
+		$this->db->join('provinsi', 'provinsi.id = user.provinsi_id');
+		$query = $this->db->get();
+		return $query->result();
+		// Produces:
+		// SELECT * FROM blogs JOIN comments ON comments.id = blogs.id		
+	}
+
+  // public function get_it($keyword=null,$field=null, $is_all=false,$jointable, $ontable){
+  //     if ($keyword!=null) {
+  //         $this->db->where($keyword);
+  //     }
+  //     if ($field!=null) {
+  //         $this->db->select($field);
+  //     }
+  //     $this->db->from($this->table);
+  //     $query = $this->db->get();
+
+  //     if ($is_all==true) {
+  //         return $query->result();
+  //     }else{
+  //         return $query->row();
+  //     }
+  // }   
+
 }
