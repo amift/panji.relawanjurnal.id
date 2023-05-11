@@ -16,7 +16,7 @@
                 <li class="header">Main Navigation</li>
                 <li><a href="<?php echo base_url('user')?>"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                 <li><a href="<?php echo base_url('user/jurnal')?>"><i class="fa fa-book"></i> <span>Jurnal</span></a></li>
-                <li><a href="<?php echo base_url('user/pengajuam')?>"><i class="fa fa-book"></i> <span>Pengajuan</span></a></li>
+                <!-- <li><a href="<?php echo base_url('user/pengajuam')?>"><i class="fa fa-book"></i> <span>Pengajuan</span></a></li> -->
                 <li><a href="<?php echo base_url('user/profile')?>"><i class="fa fa-user"></i> <span>Profile</span></a></li>
                 <li><a href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
             </ul>
