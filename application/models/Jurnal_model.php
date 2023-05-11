@@ -3,6 +3,7 @@
 class Jurnal_model extends MY_Model {
     
     var $table  = 'jurnal';
+    var $owner  = '';
 
     var $column_order  = array(NULL,NULL,'nama', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
     var $column_search = array('nama', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
@@ -46,7 +47,9 @@ class Jurnal_model extends MY_Model {
 		$sql_view .= ' LEFT JOIN frek_terbitan ft ON ft.id = j.frek_terbitan_id';
 		$sql_view .= ' LEFT JOIN waktu_review wr ON wr.id = j.waktu_review_id';
 		$sql_view .= ' LEFT JOIN provinsi p ON p.id = j.provinsi_id';
-		$sql_view .= ' WHERE user_id = '.$this->session->userdata('ses_id');
+		if (!empty($this->owner)) {
+			$sql_view .= ' WHERE '.$this->owner;
+		}
 		$sql_view .= ' ) AS sql_view';
 
 		$sql  = ' SELECT id, user_id, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, etika, oai, doi';
