@@ -64,8 +64,8 @@ class Jurnal extends MY_Controller {
 															<b>Email editor : </b>'.$db_data->email_editor.'<br>
 												  </div>';
 							$row[]   = '<div>
-															<a target="_blank" href="'.$db_data->url_editor.'"><i class="fa fa-globe"></i> Url Editor</a> <br>
 															<a target="_blank" href="'.$db_data->url.'"><i class="fa fa-globe"></i> Url Jurnal</a> <br>
+															<a target="_blank" href="'.$db_data->url_editor.'"><i class="fa fa-globe"></i> Url Editor</a> <br>
 															<a target="_blank" href="'.$db_data->kontak.'"><i class="fa fa-globe"></i> URL Kontak</a> <br>
 															<a target="_blank" href="'.$db_data->reviewer.'"><i class="fa fa-globe"></i> URL Reviewer</a> <br>
 															<a target="_blank" href="'.$db_data->statistik.'"><i class="fa fa-globe"></i> URL Statistik</a> <br>
