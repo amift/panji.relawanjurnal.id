@@ -57,10 +57,10 @@ class MY_Model extends CI_Model {
           }
 
           if(isset($_POST['order'])){
-                $sql_order = 'ORDER BY '.$this->column_order[$_POST['order']['0']['column']].' '.$_POST['order']['0']['dir'];
+                $sql_order = ' ORDER BY '.$this->column_order[$_POST['order']['0']['column']].' '.$_POST['order']['0']['dir'];
           }elseif(isset($this->order)){
               $order = $this->order;
-                $sql_order = 'ORDER BY '.key($order).' '.$order[key($order)];
+                $sql_order = ' ORDER BY '.key($order).' '.$order[key($order)];
           }
           return $sql_search.$sql_order;
       }
