@@ -15,6 +15,7 @@ class Jurnal extends MY_Controller {
       $this->privilegeCheck($this->modul);
 
       $this->load->model('Jurnal_model','m_data');
+
       $this->load->model('Lisensi_model','m_lisensi');
       $this->load->model('Frekterbitan_model','m_frekterbitan');
       $this->load->model('Waktureview_model','m_waktureview');
@@ -36,7 +37,9 @@ class Jurnal extends MY_Controller {
 
 		public function list(){
 	      if ($this->input->is_ajax_request()) {
-						$list = $this->m_data->get_datatables();
+	      	  $this->m_data->owner='user_id = '.$this->session->userdata('ses_id');
+						$list = $this->m_data->get_datatables('user_id='.$this->session->userdata('ses_id'));
+						// debugme($this->db->last_query());
 						$data = array();
 						foreach ($list as $db_data) {
 							$row     = array();
