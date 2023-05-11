@@ -83,6 +83,15 @@ class MY_Model extends CI_Model {
         }
     }   
 
+    public function get_rows($keyword=null){
+        if ($keyword!=null) {
+            $this->db->where($keyword);
+        }
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
     public function is_present($keyword){
         $this->db->from($this->table);
         $this->db->where($keyword);
