@@ -11,11 +11,17 @@ class Home extends MY_Controller {
       $this->loginCheck();
       $this->privilegeCheck($this->modul);
 
-      $this->load->model('user_model','m_data');      
+      $this->load->model('user_model','m_data'); 
+      $this->load->model('jurnal_model','m_jurnal');      
+
   
     }
 
 	public function index(){
+
+		$invoke['jurnal']     =  $this->m_jurnal->get_rows();
+		$invoke['users']     =  $this->m_data->get_rows();
+
 		$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 		$invoke['jsfile']       = 'index_js.php';
 
