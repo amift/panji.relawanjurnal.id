@@ -22,7 +22,7 @@
                 <li><a href="<?php echo base_url('admin/lisensi')?>"><i class="fa fa-anchor"></i> <span>Lisensi</span></a></li>
                 <li><a href="<?php echo base_url('admin/frekterbitan')?>"><i class="fa fa-quote-left"></i> <span>Frekuensi terbitan</span></a></li>
                 <li><a href="<?php echo base_url('admin/waktureview')?>"><i class="fa fa-clock-o"></i> <span>Waktu Review</span></a></li>                
-                <li><a href="<?php echo base_url('admin/groups')?>"><i class="fa fa-users"></i> <span>Groups</span></a></li>
+                <!-- <li><a href="<?php echo base_url('admin/groups')?>"><i class="fa fa-users"></i> <span>Groups</span></a></li> -->
                 <li><a href="<?php echo base_url('admin/user')?>"><i class="fa fa-user"></i> <span>User</span></a></li>
                 <li class="header" style="color:#ffff00">Sistem</li>                
                 <li><a href="<?php echo base_url('admin/emailtemplate')?>"><i class="fa fa-envelope"></i> <span>Email Template</span></a></li>
