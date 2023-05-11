@@ -110,7 +110,7 @@
                                 <div class="form-group">
                                     <?php 
                                         echo "Akreditasi SINTA";
-                                        echo form_dropdown('input_akre_sinta_id',$arr_akre_sinta,set_value('input_akre_sinta_id','',FALSE),'class="form-control" ');
+                                        echo form_dropdown('input_akre_sinta',$arr_akre_sinta,set_value('input_akre_sinta','',FALSE),'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>

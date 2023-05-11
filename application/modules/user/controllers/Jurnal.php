@@ -22,11 +22,11 @@ class Jurnal extends MY_Controller {
     }
 
 		public function index(){			
-			$invoke['arr_lisensi'] = $this->m_lisensi->get_data_as_array('-- Lisensi --','id, nama as name');
+			$invoke['arr_lisensi']       = $this->m_lisensi->get_data_as_array('-- Lisensi --','id, nama as name');
 			$invoke['arr_frek_terbitan'] = $this->m_frekterbitan->get_data_as_array('-- Frekuensi Terbitan --','id, nama as name');
-			$invoke['arr_waktu_review'] = $this->m_waktureview->get_data_as_array('-- Waktu Review --','id, nama as name');
-			$invoke['arr_provinsi'] = $this->m_provinsi->get_data_as_array('-- Provinsi --','id, name');
-			$invoke['arr_akre_sinta'] = ['' => '-- SINTA --','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','0'=>'TIDAK ADA'];
+			$invoke['arr_waktu_review']  = $this->m_waktureview->get_data_as_array('-- Waktu Review --','id, nama as name');
+			$invoke['arr_provinsi']      = $this->m_provinsi->get_data_as_array('-- Provinsi --','id, name');
+			$invoke['arr_akre_sinta']    = ['' => '-- SINTA --','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','0'=>'TIDAK ADA'];
 			
 
 			$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
@@ -90,7 +90,7 @@ class Jurnal extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id],'id, name, description');
+	        $data = $this->m_data->get_it(['id'=>$id],'id, nama, eissn, pissn, penerbit, provinsi_id, tahun_terbit, akre_sinta, lisensi_id, frek_terbitan_id, waktu_review_id, nama_editor, telepon_editor, email_editor, url, url_editor, kontak, reviewer, etika, statistik, oai, doi');
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];
@@ -106,6 +106,7 @@ class Jurnal extends MY_Controller {
 				'input_penerbit'	        => form_error('input_penerbit'),
 				'input_provinsi_id'	      => form_error('input_provinsi_id'),
 				'input_tahun_terbit'	    => form_error('input_tahun_terbit'),
+				'input_akre_sinta'	      => form_error('input_akre_sinta'),
 				'input_lisensi_id'	      => form_error('input_lisensi_id'),
 				'input_frek_terbitan_id'	=> form_error('input_frek_terbitan_id'),
 				'input_waktu_review_id'	  => form_error('input_waktu_review_id'),
@@ -134,6 +135,7 @@ class Jurnal extends MY_Controller {
 				'penerbit'         => html_escape($this->input->post('input_penerbit')),
 				'provinsi_id'      => html_escape($this->input->post('input_provinsi_id')),
 				'tahun_terbit'     => html_escape($this->input->post('input_tahun_terbit')),
+				'akre_sinta'	     => html_escape($this->input->post('input_akre_sinta')),
 				'lisensi_id'       => html_escape($this->input->post('input_lisensi_id')),
 				'frek_terbitan_id' => html_escape($this->input->post('input_frek_terbitan_id')),
 				'waktu_review_id'  => html_escape($this->input->post('input_waktu_review_id')),
@@ -191,6 +193,7 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_pissn',	            'pissn',            'trim|max_length[20]');
 				$this->form_validation->set_rules('input_penerbit',	          'penerbit',         'trim|max_length[200]|required');
 				$this->form_validation->set_rules('input_tahun_terbit',	      'tahun_terbit',     'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_akre_sinta',	    'akreditasi sinta', 'trim|max_length[2]|required');
 				$this->form_validation->set_rules('input_nama_editor',	      'nama_editor',      'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_telepon_editor',	    'telepon_editor',   'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_email_editor',	      'email_editor',     'trim|max_length[255]|required');
