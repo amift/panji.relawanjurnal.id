@@ -26,6 +26,7 @@ class Jurnal_model extends MY_Model {
 											p.name AS provinsi_nama,
 										j.nama, 
 										j.user_id, 
+											u.name AS user_nama,
 										j.url, 
 										j.eissn, 
 										j.pissn, 
@@ -43,6 +44,7 @@ class Jurnal_model extends MY_Model {
 										j.oai, 
 										j.doi';
 		$sql_view .= ' FROM jurnal j ';
+		$sql_view .= ' LEFT JOIN user u ON u.id = j.user_id';
 		$sql_view .= ' LEFT JOIN lisensi l ON l.id = j.lisensi_id';
 		$sql_view .= ' LEFT JOIN frek_terbitan ft ON ft.id = j.frek_terbitan_id';
 		$sql_view .= ' LEFT JOIN waktu_review wr ON wr.id = j.waktu_review_id';
@@ -52,7 +54,7 @@ class Jurnal_model extends MY_Model {
 		}
 		$sql_view .= ' ) AS sql_view';
 
-		$sql  = ' SELECT id, user_id, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, etika, oai, doi';
+		$sql  = ' SELECT id, user_id, user_nama, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, etika, oai, doi';
 		$sql .= ' FROM '.$sql_view;
 		return $sql;
 	}

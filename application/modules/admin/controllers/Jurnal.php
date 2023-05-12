@@ -49,6 +49,7 @@ class Jurnal extends MY_Controller {
 																<a class ="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
 												  </div>';
 							$row[]   = '<div>
+														  <b>Penginput Data : </b>'.$db_data->user_nama.'<br><br>
 														  <b>Nama Jurnal : </b>'.$db_data->nama.'<br>
 														  <b>E-ISSN : </b>'.$db_data->eissn.'<br>
 														  <b>P-ISSN : </b>'.$db_data->pissn.'<br>
