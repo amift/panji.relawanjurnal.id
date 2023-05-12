@@ -26,7 +26,14 @@
         <div class="col-md-3 panel">
           <h3 class="panel-title">Follow Us</h3>
           <div class="panel-body">
-            <p class="follow-me-icons"> <a href=""><i class="fa fa-twitter fa-2"></i></a> <a href=""><i class="fa fa-dribbble fa-2"></i></a> <a href=""><i class="fa fa-github fa-2"></i></a> <a href=""><i class="fa fa-facebook fa-2"></i></a> <a href=""><i class="fa fa-youtube fa-2"></i></a> <a href=""><i class="fa fa-pinterest fa-2"></i></a> </p>
+            <p class="follow-me-icons"> 
+                <a target="_blank" href="https://twitter.com/Jur_Indonesia"><i class="fa fa-twitter fa-2"></i></a> 
+                <a target="_blank" href="https://www.facebook.com/RELAWANJURNAL/"><i class="fa fa-facebook fa-2"></i></a> 
+                <a target="_blank" href="https://www.youtube.com/channel/UCigdxKIM5YjDaGnP8amSZ-w"><i class="fa fa-youtube fa-2"></i></a>               
+                <a target="_blank" href="https://twitter.com/Jur_Indonesia"><i class="fa fa-twitter fa-2"></i></a>                 
+                <!-- <a target="_blank" href=""><i class="fa fa-dribbble fa-2"></i></a> 
+                <a target="_blank" href=""><i class="fa fa-github fa-2"></i></a> 
+                <a target="_blank" href=""><i class="fa fa-pinterest fa-2"></i></a> </p> -->
           </div>
         </div>
       </div>
