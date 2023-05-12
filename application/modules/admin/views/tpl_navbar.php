@@ -44,7 +44,7 @@
                 </p>
               </li>
               
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a class="btn btn-default btn-flat" href="<?php echo base_url('admin/profile').'/edit_password/' ?> " title="Ganti Password" > Ganti Password</a> 
@@ -54,13 +54,13 @@
                   <div class="col-xs-4 text-center">
                   </div>
                 </div>
-              </li>
+              </li> -->
 
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
+<!--                 <div class="pull-left">
                     <a href="<?php echo base_url('admin/profile') ?>" class="btn btn-default btn-flat">Profile</a>
-                </div>
+                </div> -->
                 <div class="pull-right">
                   <a href="<?php echo base_url('logout') ?>" class="btn btn-default btn-flat">Log out</a>
                 </div>
