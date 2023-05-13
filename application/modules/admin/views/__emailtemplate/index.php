@@ -49,7 +49,7 @@
                                         <div class="form-group">
                                             <?php
                                                 echo "Nama";
-                                                echo form_input('input_name', set_value('input_name', '', FALSE), 'class="form-control" style="pointer-events:none;border:none;" tabindex="-1" ');
+                                                echo form_input('input_name', set_value('input_name', '', FALSE), 'class="form-control disabled" ');
 
                                             ?>
                                             <span class="invalid-feedback"></span>
@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <?php 
                                                 echo "Informasi Tags yg dapat digunakan";
-                                                echo form_textarea('input_tags',set_value('input_tags','',FALSE),'class="form-control" style="pointer-events:none;border:none;" tabindex="-1" ');
+                                                echo form_textarea('input_tags',set_value('input_tags','',FALSE),'class="form-control disabled" ');
                                             ?>
                                             <span class="invalid-feedback"></span>
                                         </div>
