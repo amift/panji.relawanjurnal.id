@@ -18,6 +18,14 @@
                             text    : 'Username atau Password salah',
                             type    : 'warning'
                         });
+                    }else if(callback.not_verified){
+                        Swal({
+                            title   : 'Peringatan',
+                            text    : 'Akun anda belum terverifikasi, silahkan periksa email anda',
+                            type    : 'danger'
+                        }).then(function(){
+                            window.location = mainurl;
+                        });
                     }else{                
                         window.location = mainurl+'user/home';
                     }

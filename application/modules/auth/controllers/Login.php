@@ -48,18 +48,22 @@ class Login extends MY_Controller {
             if (empty($result)) {
 	           $invoke['login_failed'] = TRUE;
 	          }else{
-              $_SESSION['KCFINDER']['disabled']  = false;
-              $_SESSION['KCFINDER']['uploadURL'] = PUBLIC_URL;
-              $_SESSION['KCFINDER']['uploadDir'] = PUBLIC_DIR;              
-							$mysession = array(
-								'is_login'       => 'logged',
-								'ses_id'         => $result->id,
-								'ses_name'       => $result->name,
-								'ses_username'   => $result->username,
-								'ses_level' 	   => $result->level,
-							);
-              $this->m_data->update(['last_login' => date('Y-m-d H:i:s')], ['id' => $result->id]);
-							$this->session->set_userdata($mysession);	          	
+              if ($result->is_verified == 'no') {
+                $invoke['not_verified'] = TRUE;
+              }else{
+                $_SESSION['KCFINDER']['disabled']  = false;
+                $_SESSION['KCFINDER']['uploadURL'] = PUBLIC_URL;
+                $_SESSION['KCFINDER']['uploadDir'] = PUBLIC_DIR;              
+  							$mysession = array(
+  								'is_login'       => 'logged',
+  								'ses_id'         => $result->id,
+  								'ses_name'       => $result->name,
+  								'ses_username'   => $result->username,
+  								'ses_level' 	   => $result->level,
+  							);
+                $this->m_data->update(['last_login' => date('Y-m-d H:i:s')], ['id' => $result->id]);
+  							$this->session->set_userdata($mysession);	          	
+              }
 	          }
             
             $invoke['status'] = TRUE;
