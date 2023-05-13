@@ -27,6 +27,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Telepon</th>
+                            <th>Institusi</th>
                             <th>Provinsi</th>
                             <th>Last Login</th>
                         </tr>
@@ -74,6 +75,17 @@
                                     <?php
                                         echo "Email";
                                         echo form_input('input_email', set_value('input_email', '', FALSE), 'class="form-control" ');
+                                    ?>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <?php
+                                        echo "Institusi";
+                                        echo form_input('input_institusi', set_value('input_institusi', '', FALSE), 'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>

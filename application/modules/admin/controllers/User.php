@@ -43,6 +43,7 @@ class User extends MY_Controller {
 							$row[]  = $db_data->name;
 							$row[]  = $db_data->email;
 							$row[]  = $db_data->telepon;
+							$row[]  = $db_data->institusi;
 							$row[]  = $db_data->provinsi_nama;
 							$row[]  = $db_data->last_login;
 							
@@ -63,7 +64,7 @@ class User extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, provinsi_id');        
+	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, institusi, provinsi_id');        
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];
@@ -73,10 +74,11 @@ class User extends MY_Controller {
 
 		protected function stat_error(){
 			$errors = array(
-				'input_username'  =>  form_error('input_username'),
-				'input_name'      =>  form_error('input_name'),
-				'input_email'     =>  form_error('input_email'),
-				'input_provinsi_id'     =>  form_error('input_provinsi_id'),
+				'input_username'     =>  form_error('input_username'),
+				'input_name'         =>  form_error('input_name'),
+				'input_email'        =>  form_error('input_email'),
+				'input_institusi'    =>  form_error('input_institusi'),				
+				'input_provinsi_id'  =>  form_error('input_provinsi_id'),
 			);
 			return $errors;
 		}
@@ -85,9 +87,10 @@ class User extends MY_Controller {
     protected function data_post($mode){
 
     	$data = array(
-				'username'  => html_escape($this->input->post('input_username')),
-				'name'  => html_escape($this->input->post('input_name')),
-				'email'  => html_escape($this->input->post('input_email')),
+				'username'     => html_escape($this->input->post('input_username')),
+				'name'         => html_escape($this->input->post('input_name')),
+				'email'        => html_escape($this->input->post('input_email')),
+				'institusi'    => html_escape($this->input->post('input_institusi')),
 				'provinsi_id'  => html_escape($this->input->post('input_provinsi_id')),
     	);
 			if ($mode=='edit') {
