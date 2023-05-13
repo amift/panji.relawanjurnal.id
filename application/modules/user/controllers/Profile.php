@@ -21,7 +21,7 @@ class Profile extends MY_Controller {
 
 	public function index(){
 
-		$invoke['myprofile']    =  $this->m_data->get_it(['id' => $this->session->userdata('ses_id')]);
+		$invoke['myprofile']    =  $this->m_data->get_it_all(['id' => $this->session->userdata('ses_id')]);
 		$invoke['arr_provinsi'] = $this->m_provinsi->get_data_as_array('-- Provinsi --');
 
 
@@ -34,7 +34,7 @@ class Profile extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, provinsi_id');        
+	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, telepon, provinsi_id, institusi');
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];

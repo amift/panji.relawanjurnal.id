@@ -17,11 +17,12 @@
                 <a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit(<?php echo seal_it($myprofile->id) ?>)"><i class="fa fa-edit"></i> </a> 
                 <hr>
                 <dl class="dl-horizontal">
-                    <dt>Nama</dt>      <dd><?php echo $myprofile->name?></dd>
-                    <dt>Username</dt>  <dd><?php echo $myprofile->username?></dd>
-                    <dt>Email</dt>     <dd><?php echo $myprofile->email?></dd>
+                    <dt>Username</dt>       <dd><?php echo $myprofile->username?></dd>
+                    <dt>Nama</dt>           <dd><?php echo $myprofile->name?></dd>
+                    <dt>Email</dt>          <dd><?php echo $myprofile->email?></dd>
+                    <dt>Provinsi</dt>       <dd><?php echo $myprofile->provinsi_nama?></dd>
                     <dt>Asal Institusi</dt> <dd><?php echo $myprofile->institusi?></dd>
-                    <dt>telepon</dt>   <dd><?php echo $myprofile->telepon?></dd>
+                    <dt>telepon</dt>        <dd><?php echo $myprofile->telepon?></dd>
                 </dl>                
             </div>
         </div>
@@ -53,6 +54,28 @@
                                     <?php
                                         echo "Email";
                                         echo form_input('input_email', set_value('input_email', '', FALSE), 'class="form-control" ');
+                                    ?>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <?php
+                                        echo "Telepon";
+                                        echo form_input('input_telepon', set_value('input_telepon', '', FALSE), 'class="form-control" ');
+                                    ?>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <?php
+                                        echo "Asal Institusi";
+                                        echo form_input('input_institusi', set_value('input_institusi', '', FALSE), 'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>
