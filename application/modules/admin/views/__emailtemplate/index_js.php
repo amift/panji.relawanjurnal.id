@@ -1,7 +1,5 @@
 <script type="text/javascript">
 
-    console.log(' index_js.js')
-
     $(document).ready(function() {
         list();
         mode_default();        
@@ -36,8 +34,8 @@
                 $('[name="input_id"]').val(callback.id);
 
                 $('[name="input_name"]').val(callback.name);
-                $('[name="input_template"]').val(callback.template);
                 $('[name="input_tags"]').val(callback.tags);                                
+                $('[name="input_template"]').val(callback.template);
             },
             error: function (jqXHR, textStatus, errorThrown){
                 alert('Error get data from ajax');

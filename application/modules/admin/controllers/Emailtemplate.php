@@ -66,9 +66,7 @@ class Emailtemplate extends MY_Controller {
 
 		protected function stat_error(){
 			$errors = array(
-				'input_name'      =>  form_error('input_name'),
 				'input_template'  =>  form_error('input_template'),
-				'input_tags'      =>  form_error('input_tags'),
 			);
 			return $errors;
 		}
@@ -77,9 +75,7 @@ class Emailtemplate extends MY_Controller {
     protected function data_post($mode){
 
     	$data = array(
-				'name'  => html_escape($this->input->post('input_name')),
 				'template'  => $this->input->post('input_template'),
-				'tags'  => $this->input->post('input_tags'),
     	);
 			if ($mode=='edit') {
 			}else{
@@ -114,9 +110,7 @@ class Emailtemplate extends MY_Controller {
 			if ($mode=='edit') {
 			}else{
 			}	
-	        $this->form_validation->set_rules('input_name'  ,'Nama' ,'trim|max_length[255]|required');
 	        $this->form_validation->set_rules('input_template'  ,'Template' ,'trim|max_length[3600]|required');
-	        $this->form_validation->set_rules('input_tags'  ,'Tags' ,'trim|max_length[255]');
 		}  
 
 }
