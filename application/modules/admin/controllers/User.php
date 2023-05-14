@@ -34,19 +34,30 @@ class User extends MY_Controller {
 						foreach ($list as $db_data) {
 							$row     = array();
 							$row[]   = '';
+						
+							$is_verified = ($db_data->is_verified == 'yes')?'<i class="fa fa-check verified"></i>':'<i class="fa fa-times unverified"></i>';
+							$is_active = ($db_data->is_active == 'yes')?'<i class="fa fa-check active"></i>':'<i class="fa fa-times inactive"></i>';
+
 
 							$row[]   = '<div class="text-center">
 																<a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
 																<a class ="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
-												  </div>';										
-							$row[]  = $db_data->username;
-							$row[]  = $db_data->name;
-							$row[]  = $db_data->email;
-							$row[]  = $db_data->telepon;
+												  </div>';
+							$row[]   = '<div>
+															<b>Username : </b>'.$db_data->username.'<br>
+															<b>Nama : </b>'.$db_data->name.'<br>
+												  </div>';
+							$row[]   = '<div>
+															<b>Nama : </b>'.$db_data->telepon.'<br>
+															<b>Email : </b>'.$db_data->email.'<br>
+												  </div>';
 							$row[]  = $db_data->institusi;
 							$row[]  = $db_data->provinsi_nama;
-							$row[]  = $db_data->last_login;
-							
+							$row[]   = '<div>
+															<b>Verified : </b>'.$is_verified.'<br>
+															<b>Active : </b>'.$is_active.'<br>
+															<b>Last Login : </b>'.$db_data->last_login.'<br>
+												  </div>';
 							$data[]  = $row;
 						}
 		        $output = array(

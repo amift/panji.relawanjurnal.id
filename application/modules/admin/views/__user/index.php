@@ -23,13 +23,11 @@
                         <tr>               
                             <th style="width:20px">No</th>
                             <th style="width:70px">Action</th>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Telepon</th>
+                            <th>Biodata</th>
+                            <th>Kontak</th>
                             <th>Institusi</th>
                             <th>Provinsi</th>
-                            <th>Last Login</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
