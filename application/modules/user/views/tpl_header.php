@@ -45,5 +45,6 @@
     
     </head>
     <body class="hold-transition sidebar-mini skin-rji">
-    <?php $this->load->view('tpl_navbar'); ?>
-    <?php $this->load->view('tpl_sidebar'); ?>
+       <div class="wrapper" style="height: auto; min-height: 100%;">
+        <?php $this->load->view('tpl_navbar'); ?>
+        <?php $this->load->view('tpl_sidebar'); ?>
