@@ -60,3 +60,4 @@
     
     </head>
     <body class="hold-transition sidebar-mini skin-rji">
+        <div class="wrapper" style="height: auto; min-height: 100%;">
