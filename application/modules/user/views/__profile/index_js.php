@@ -1,4 +1,7 @@
 <script type="text/javascript">
+    var var_img ='';
+    var img_url= '<?php echo IMG_URL ?>';
+
     $(document).ready(function() {
         list();
         mode_default();
@@ -42,4 +45,33 @@
         });        
     }
 
+    $("#file-upload").change(function(e){ 
+        var form_data = new FormData($('#form_file')[0]);
+        $.ajax({
+            url : baseurl + "/savefile",
+            enctype: 'multipart/form-data',
+            type: "POST",
+            data: form_data,
+            processData: false,
+            contentType: false,
+            success: function(data){                
+                if(data.status){ 
+                    var_img=img_url+data.foto+'?v='+Date.now();
+                    $("#foto").attr("src", var_img );
+                    $("#foto-sidebar").attr("src", var_img );
+                    $("#foto-header-top").attr("src", var_img );
+                    $("#foto-header-inside").attr("src", var_img );
+                    $('#file-msg').html('<b class="text-blue">Image Updated</b>');
+                    $("#file-msg").fadeIn().delay(1000).fadeOut();
+                }else{
+                    $('#file-msg').html('<b class="text-red">'+data.error+'</b>');
+                    $("#file-msg").fadeIn().delay(3000).fadeOut();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown){
+                alert('Error adding / update data');
+            }
+        });
+    });
+    
 </script>

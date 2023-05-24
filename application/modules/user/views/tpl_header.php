@@ -34,6 +34,34 @@
         }
         .invalid-feedback{
           color: Red;
+        }
+        #hidefilenput,
+        #file-upload {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        .custom-file-upload span.material-icons {
+            position: relative;
+            bottom: 60px;
+            z-index: 99;
+        }
+
+        .custom-file-upload-min {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 2px 3px;
+            cursor: pointer;
+        }
+        .custom-file-upload-min:hover {
+            border-color: #ff9000;
+            color: #000;
+            background-color: #ccc;
         }        
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

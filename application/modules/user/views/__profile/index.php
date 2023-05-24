@@ -16,14 +16,35 @@
             <div class="panel-body">
                 <a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit(<?php echo seal_it($myprofile->id) ?>)"><i class="fa fa-edit"></i> </a> 
                 <hr>
-                <dl class="dl-horizontal">
-                    <dt>Username</dt>       <dd><?php echo $myprofile->username?></dd>
-                    <dt>Nama</dt>           <dd><?php echo $myprofile->name?></dd>
-                    <dt>Email</dt>          <dd><?php echo $myprofile->email?></dd>
-                    <dt>Provinsi</dt>       <dd><?php echo $myprofile->provinsi_nama?></dd>
-                    <dt>Asal Institusi</dt> <dd><?php echo $myprofile->institusi?></dd>
-                    <dt>telepon</dt>        <dd><?php echo $myprofile->telepon?></dd>
-                </dl>                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-no-border text-center p-3">
+                            <div class="card-body">
+                                <form action="#" id="form_file">
+                                    <input type="hidden" name="app_key" value="ed1c6380-93bb-427e-bf73-57bd6bde72c7">                                    
+                                    <img id="foto" width="120" class="img-responsive center-block rounded-circle img-thumbnail shadow" src="<?php echo IMG_URL.$myprofile->foto ?>" alt=""><br>
+                                    <label id="changefoto" for="file-upload" class="custom-file-upload">
+                                        <i class="fa fa-camera fa-2x"></i>
+                                    </label>
+                                    <input id="file-upload" type="file" name="input_file"> <br>
+                                    jpg, png | 200 kb Maksimal <br>
+                                    Klik icon untuk mengganti foto <br>
+                                    <span id="file-msg"></span>
+                                </form>
+                            </div>                        
+                        </div>                    
+                    </div>
+                    <div class="col-sm-8">
+                        <dl class="dl-horizontal">
+                            <dt>Username</dt>       <dd><?php echo $myprofile->username?></dd>
+                            <dt>Nama</dt>           <dd><?php echo $myprofile->name?></dd>
+                            <dt>Email</dt>          <dd><?php echo $myprofile->email?></dd>
+                            <dt>Provinsi</dt>       <dd><?php echo $myprofile->provinsi_nama?></dd>
+                            <dt>Asal Institusi</dt> <dd><?php echo $myprofile->institusi?></dd>
+                            <dt>telepon</dt>        <dd><?php echo $myprofile->telepon?></dd>
+                        </dl>                
+                    </div>
+                </div>
             </div>
         </div>
     </section>

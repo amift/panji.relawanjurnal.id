@@ -103,4 +103,30 @@ class Profile extends MY_Controller {
 	        $this->form_validation->set_rules('input_provinsi_id'  ,'Provinsi'  ,'trim|max_length[3]|required');
 		}  
 
+
+		public function savefile(){
+        $stat=$this->upload_file('input_file', IMG_DIR, 'jpg|png', 200);
+        // debug_it($stat,true);
+        if ($stat) {
+            $file_ext=$this->upload->data('file_ext');
+            $file_path=$this->upload->data('file_path');
+            $full_path=$this->upload->data('full_path');
+
+            $id=$this->session->userdata('ses_id');
+            $filename=md5($id);
+
+            rename($full_path, $file_path.'/'.$filename.$file_ext);
+
+            $this->m_data->update(['foto' => $filename.$file_ext], 
+            											['id' => $id]);
+
+            $invoke['foto'] = $filename.$file_ext;
+            $invoke['status'] = TRUE;
+        }else{
+            $invoke['error'] = $this->upload->display_errors();
+            $invoke['status'] = FALSE;
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($invoke));
+    }
+
 }
