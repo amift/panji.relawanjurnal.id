@@ -13,9 +13,7 @@
     </section>
     <section class="content" id="section-data">
         <div class="panel panel-default wrap-table">
-            <div class="panel-body">
-                <a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit(<?php echo seal_it($myprofile->id) ?>)"><i class="fa fa-edit"></i> </a> 
-                <hr>
+            <div class="panel-body">            
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-no-border text-center p-3">
@@ -42,7 +40,10 @@
                             <dt>Provinsi</dt>       <dd><?php echo $myprofile->provinsi_nama?></dd>
                             <dt>Asal Institusi</dt> <dd><?php echo $myprofile->institusi?></dd>
                             <dt>telepon</dt>        <dd><?php echo $myprofile->telepon?></dd>
-                        </dl>                
+                        </dl>
+                        <div class="col-sm-3 col-sm-offset-2">                            
+                            <a class ="btn btn-sm btn-primary btn-block" href="javascript:void(0)" title="Edit" onclick="edit(<?php echo seal_it($myprofile->id) ?>)"><i class="fa fa-edit"></i> Edit</a> 
+                        </div>
                     </div>
                 </div>
             </div>
