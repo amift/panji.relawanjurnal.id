@@ -59,7 +59,8 @@ class Login extends MY_Controller {
   								'ses_id'         => $result->id,
   								'ses_name'       => $result->name,
   								'ses_username'   => $result->username,
-  								'ses_level' 	   => $result->level,
+                  'ses_level'      => $result->level,
+  								'ses_foto' 	     => $result->foto,
   							);
                 $this->m_data->update(['last_login' => date('Y-m-d H:i:s')], ['id' => $result->id]);
   							$this->session->set_userdata($mysession);	          	
