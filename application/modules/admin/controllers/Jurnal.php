@@ -55,10 +55,19 @@ class Jurnal extends MY_Controller {
 							$doi        = ($db_data->doi)?'<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a>':'URL Doi [kosong]';
 
 
-							$row[]   = '<div class="text-center">
-																<a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
-																<a class ="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
-												  </div>';
+							if ($this->is_related($db_data->id)) {
+								$row[]   = '<div class="text-center">
+												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+												<a class="btn btn-xs btn-default disabled" href="javascript:void(0)" title="Relational Data" ><i class="fa fa-trash"></i> </a>
+											</div>';
+							}else{
+								$row[]   = '<div class="text-center">
+												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+												<a class ="btn btn-xs btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
+											</div>';
+							}
+
+
 							$row[]   = '<div>
 														  <img id="foto" width="120" class="img-responsive center-block rounded-circle img-thumbnail shadow" src="'.IMG_URL.$db_data->user_foto.'" alt=""><br>
 														  '.$db_data->user_nama.'
@@ -187,8 +196,8 @@ class Jurnal extends MY_Controller {
     protected function is_related($id){
     	$decision=false;
  			$arr = array(
- 					 	// $this->m_data->get_relation_data('provinsi','id',$id)
- 					 );
+ 					 			// $this->m_data->get_relation_data('provinsi','provinsi_id',$id)
+ 					 	);
     	foreach ($arr as $key => $value) {
     		$decision=$decision || $value;
     	}    	
