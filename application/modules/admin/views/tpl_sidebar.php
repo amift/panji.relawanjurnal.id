@@ -2,7 +2,7 @@
         <section class="sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img id="foto-sidebar" src="" class="img-circle" alt="User Image">
+                    <img id="foto-sidebar" src="<?php echo IMG_URL.$this->session->userdata('ses_foto') ?>" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">                    
                     <p><?php echo $this->session->userdata('ses_name') ?></p>
