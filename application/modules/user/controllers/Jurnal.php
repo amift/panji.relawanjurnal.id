@@ -73,6 +73,7 @@ class Jurnal extends MY_Controller {
 															<a target="_blank" href="'.$db_data->reviewer.'"><i class="fa fa-globe"></i> URL Reviewer</a> <br>
 															<a target="_blank" href="'.$db_data->statistik.'"><i class="fa fa-globe"></i> URL Statistik</a> <br>
 															<a target="_blank" href="'.$db_data->etika.'"><i class="fa fa-globe"></i> URL Etika</a> <br>
+															<a target="_blank" href="'.$db_data->indeksasi.'"><i class="fa fa-globe"></i> URL Indeksasi</a> <br>
 															<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a> <br>
 															<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a> <br>
 												  </div>';
@@ -93,7 +94,7 @@ class Jurnal extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id],'id, nama, eissn, pissn, penerbit, provinsi_id, tahun_terbit, akre_sinta, lisensi_id, frek_terbitan_id, waktu_review_id, nama_editor, telepon_editor, email_editor, url, url_editor, kontak, reviewer, etika, statistik, oai, doi');
+	        $data = $this->m_data->get_it(['id'=>$id],'id, nama, eissn, pissn, penerbit, provinsi_id, tahun_terbit, akre_sinta, lisensi_id, frek_terbitan_id, waktu_review_id, nama_editor, telepon_editor, email_editor, url, url_editor, kontak, reviewer, etika, statistik, indeksasi, oai, doi');
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];
@@ -122,6 +123,7 @@ class Jurnal extends MY_Controller {
 				'input_reviewer'	        => form_error('input_reviewer'),
 				'input_etika'	            => form_error('input_etika'),
 				'input_statistik'	        => form_error('input_statistik'),
+				'input_indeksasi'	        => form_error('input_indeksasi'),
 				'input_oai'	              => form_error('input_oai'),
 				'input_doi'	              => form_error('input_doi'),
 			);
@@ -151,6 +153,7 @@ class Jurnal extends MY_Controller {
 				'reviewer'         => html_escape($this->input->post('input_reviewer')),
 				'etika'            => html_escape($this->input->post('input_etika')),
 				'statistik'        => html_escape($this->input->post('input_statistik')),
+				'indeksasi'        => html_escape($this->input->post('input_indeksasi')),
 				'oai'              => html_escape($this->input->post('input_oai')),
 				'doi'              => html_escape($this->input->post('input_doi')),
     	);
@@ -196,18 +199,19 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_pissn',	            'pissn',            'trim|max_length[20]');
 				$this->form_validation->set_rules('input_penerbit',	          'penerbit',         'trim|max_length[200]|required');
 				$this->form_validation->set_rules('input_tahun_terbit',	      'tahun_terbit',     'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_akre_sinta',	    'akreditasi sinta', 'trim|max_length[2]|required');
+				$this->form_validation->set_rules('input_akre_sinta',	        'akreditasi sinta', 'trim|max_length[2]|required');
 				$this->form_validation->set_rules('input_nama_editor',	      'nama_editor',      'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_telepon_editor',	    'telepon_editor',   'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_email_editor',	      'email_editor',     'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_url_editor',	        'url_editor',       'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_url',	              'url',              'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_kontak',	            'kontak',           'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_reviewer',	          'reviewer',         'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_statistik',	        'statistik',        'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_etika',	            'etika',            'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_oai',	              'oai',              'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_doi',	              'doi',              'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_url',	              'URL Jurnal',       'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_kontak',	            'URL kontak',       'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_reviewer',	          'URL reviewer',     'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_statistik',	        'URL statistik',    'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_etika',	            'URL etika',        'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_indeksasi',	        'URL Indeksasi',    'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_oai',	              'URL oai',          'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_doi',	              'URL doi',          'trim|max_length[255]|required');
 		}  
 
 }

@@ -41,6 +41,7 @@ class Jurnal_model extends MY_Model {
 										j.reviewer, 
 										j.statistik, 
 										j.etika, 
+										j.indeksasi, 
 										j.oai, 
 										j.doi';
 		$sql_view .= ' FROM jurnal j ';
@@ -54,7 +55,7 @@ class Jurnal_model extends MY_Model {
 		}
 		$sql_view .= ' ) AS sql_view';
 
-		$sql  = ' SELECT id, user_id, user_nama, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, etika, oai, doi';
+		$sql  = ' SELECT id, user_id, user_nama, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi';
 		$sql .= ' FROM '.$sql_view;
 		return $sql;
 	}

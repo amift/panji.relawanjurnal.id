@@ -48,6 +48,7 @@
                 $('[name="input_reviewer"]').val(callback.reviewer);
                 $('[name="input_etika"]').val(callback.etika);
                 $('[name="input_statistik"]').val(callback.statistik);
+                $('[name="input_indeksasi"]').val(callback.indeksasi);
                 $('[name="input_oai"]').val(callback.oai);
                 $('[name="input_doi"]').val(callback.doi);
             },

@@ -246,6 +246,15 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
+                                            echo "URL Indeksasi";
+                                            echo form_input('input_indeksasi', set_value('input_indeksasi', '', FALSE), 'class="form-control" ');
+                                        ?>
+                                        <span class="invalid-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <?php
                                             echo "URL oai";
                                             echo form_input('input_oai', set_value('input_oai', '', FALSE), 'class="form-control" ');
                                         ?>
