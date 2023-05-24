@@ -5,8 +5,8 @@ class Jurnal_model extends MY_Model {
     var $table  = 'jurnal';
     var $owner  = '';
 
-    var $column_order  = array(NULL,NULL,'nama', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
-    var $column_search = array('nama', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
+    var $column_order  = array(NULL,NULL,'nama','user_foto', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
+    var $column_search = array('nama','user_foto', 'eissn', 'pissn', 'penerbit', 'akre_sinta', 'nama_editor', 'telepon_editor', 'email_editor', 'url_editor', 'tahun_terbit', 'provinsi_nama', 'url', 'kontak', 'reviewer', 'statistik', 'etika', 'oai', 'doi'); 
     var $order         = array('id' => 'ASC');
 
 	public function __construct(){
@@ -27,6 +27,7 @@ class Jurnal_model extends MY_Model {
 										j.nama, 
 										j.user_id, 
 											u.name AS user_nama,
+											u.foto AS user_foto,
 										j.url, 
 										j.eissn, 
 										j.pissn, 
@@ -55,7 +56,7 @@ class Jurnal_model extends MY_Model {
 		}
 		$sql_view .= ' ) AS sql_view';
 
-		$sql  = ' SELECT id, user_id, user_nama, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi';
+		$sql  = ' SELECT id, user_id, user_nama,user_foto, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi';
 		$sql .= ' FROM '.$sql_view;
 		return $sql;
 	}

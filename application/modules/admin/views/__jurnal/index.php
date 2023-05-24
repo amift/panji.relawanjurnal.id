@@ -22,6 +22,7 @@
                         <tr>               
                             <th style="width:20px">No</th>
                             <th style="width:70px">Action</th>
+                            <th>Penginput</th>
                             <th>Informasi Umum</th>
                             <th>Editor in chief</th>
                             <th>Data Jurnal</th>                            
