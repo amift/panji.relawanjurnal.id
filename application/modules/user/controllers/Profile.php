@@ -44,9 +44,11 @@ class Profile extends MY_Controller {
 
 		protected function stat_error(){
 			$errors = array(
-				'input_name'      =>  form_error('input_name'),
-				'input_email'     =>  form_error('input_email'),
-				'input_provinsi_id'     =>  form_error('input_provinsi_id'),
+				'input_name'         =>  form_error('input_name'),
+				'input_email'        =>  form_error('input_email'),
+				'input_telepon'      =>  form_error('input_telepon'),
+				'input_institusi'      =>  form_error('input_institusi'),
+				'input_provinsi_id'  =>  form_error('input_provinsi_id'),
 			);
 			return $errors;
 		}
@@ -57,6 +59,8 @@ class Profile extends MY_Controller {
     	$data = array(
 				'name'  => html_escape($this->input->post('input_name')),
 				'email'  => html_escape($this->input->post('input_email')),
+				'telepon'  => html_escape($this->input->post('input_telepon')),
+				'institusi'  => html_escape($this->input->post('input_institusi')),
 				'provinsi_id'  => html_escape($this->input->post('input_provinsi_id')),
     	);
 			if ($mode=='edit') {
@@ -92,9 +96,11 @@ class Profile extends MY_Controller {
 			if ($mode=='edit') {
 			}else{
 			}	
-	        $this->form_validation->set_rules('input_name'  ,'Nama' ,'trim|max_length[100]|required');
-	        $this->form_validation->set_rules('input_email'  ,'Email' ,'trim|valid_email|max_length[255]|required');
-	        $this->form_validation->set_rules('input_provinsi_id'  ,'Provinsi' ,'trim|max_length[3]|required');
+	        $this->form_validation->set_rules('input_name'         ,'Nama'      ,'trim|max_length[100]|required');
+	        $this->form_validation->set_rules('input_email'        ,'Email'     ,'trim|valid_email|max_length[255]|required');
+	        $this->form_validation->set_rules('input_institusi'         ,'Asal institusi'      ,'trim|max_length[100]|required');
+	        $this->form_validation->set_rules('input_telepon'         ,'telepon'      ,'trim|max_length[100]|required');
+	        $this->form_validation->set_rules('input_provinsi_id'  ,'Provinsi'  ,'trim|max_length[3]|required');
 		}  
 
 }
