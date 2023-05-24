@@ -192,7 +192,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Jurnal";
+                                            echo "URL Homepage Jurnal";
                                             echo form_input('input_url', set_value('input_url', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
@@ -210,15 +210,6 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Kontak";
-                                            echo form_input('input_kontak', set_value('input_kontak', '', FALSE), 'class="form-control" ');
-                                        ?>
-                                        <span class="invalid-feedback"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <?php
                                             echo "URL Reviewer";
                                             echo form_input('input_reviewer', set_value('input_reviewer', '', FALSE), 'class="form-control" ');
                                         ?>
@@ -228,7 +219,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Etika";
+                                            echo "URL Etika Publikasi";
                                             echo form_input('input_etika', set_value('input_etika', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
@@ -266,6 +257,15 @@
                                         <?php
                                             echo "URL DOI";
                                             echo form_input('input_doi', set_value('input_doi', '', FALSE), 'class="form-control" ');
+                                        ?>
+                                        <span class="invalid-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <?php
+                                            echo "URL Kontak";
+                                            echo form_input('input_kontak', set_value('input_kontak', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
                                     </div>
