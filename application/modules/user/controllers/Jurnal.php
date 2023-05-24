@@ -45,6 +45,16 @@ class Jurnal extends MY_Controller {
 							$row     = array();
 							$row[]   = '';
 
+							$url        = ($db_data->url)?'<a target="_blank" href="'.$db_data->url.'"><i class="fa fa-globe"></i> URL Jurnal</a>':'URL Jurnal [kosong]';
+							$url_editor = ($db_data->url_editor)?'<a target="_blank" href="'.$db_data->url_editor.'"><i class="fa fa-globe"></i> URL Editor</a>':'URL Editor [kosong]';
+							$kontak     = ($db_data->kontak)?'<a target="_blank" href="'.$db_data->kontak.'"><i class="fa fa-globe"></i> URL Kontak</a>':'URL Kontak [kosong]';
+							$reviewer   = ($db_data->reviewer)?'<a target="_blank" href="'.$db_data->reviewer.'"><i class="fa fa-globe"></i> URL Reviewer</a>':'URL Reviewer [kosong]';
+							$statistik  = ($db_data->statistik)?'<a target="_blank" href="'.$db_data->statistik.'"><i class="fa fa-globe"></i> URL Statistik</a>':'URL Statistik [kosong]';
+							$etika      = ($db_data->etika)?'<a target="_blank" href="'.$db_data->etika.'"><i class="fa fa-globe"></i> URL Etika</a>':'URL Etika [kosong]';
+							$indeksasi  = ($db_data->indeksasi)?'<a target="_blank" href="'.$db_data->indeksasi.'"><i class="fa fa-globe"></i> URL Indeksasi</a>':'URL Indeksasi [kosong]';
+							$oai        = ($db_data->oai)?'<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a>':'URL oai [kosong]';
+							$doi        = ($db_data->doi)?'<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a>':'URL Doi [kosong]';
+
 							$row[]   = '<div class="text-center">
 																<a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
 																<a class ="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
@@ -67,15 +77,15 @@ class Jurnal extends MY_Controller {
 															<b>Email editor : </b>'.$db_data->email_editor.'<br>
 												  </div>';
 							$row[]   = '<div>
-															<a target="_blank" href="'.$db_data->url.'"><i class="fa fa-globe"></i> URL Jurnal</a> <br>
-															<a target="_blank" href="'.$db_data->url_editor.'"><i class="fa fa-globe"></i> URL Editor</a> <br>
-															<a target="_blank" href="'.$db_data->kontak.'"><i class="fa fa-globe"></i> URL Kontak</a> <br>
-															<a target="_blank" href="'.$db_data->reviewer.'"><i class="fa fa-globe"></i> URL Reviewer</a> <br>
-															<a target="_blank" href="'.$db_data->statistik.'"><i class="fa fa-globe"></i> URL Statistik</a> <br>
-															<a target="_blank" href="'.$db_data->etika.'"><i class="fa fa-globe"></i> URL Etika</a> <br>
-															<a target="_blank" href="'.$db_data->indeksasi.'"><i class="fa fa-globe"></i> URL Indeksasi</a> <br>
-															<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a> <br>
-															<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a> <br>
+															'.$url.'<br>
+															'.$url_editor.'<br>
+															'.$kontak.' <br>
+															'.$reviewer.'<br>
+															'.$statistik.'<br>
+															'.$etika.'<br>
+															'.$indeksasi.'<br>
+															'.$oai.'<br>
+															'.$doi.'<br>
 												  </div>';
 							$data[]  = $row;
 						}
