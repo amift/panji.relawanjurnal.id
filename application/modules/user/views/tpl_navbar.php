@@ -25,14 +25,14 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img id="foto-header-top" src="" class="user-image" alt="">
+              <img id="foto-header-top" src="<?php echo IMG_URL.$this->session->userdata('ses_foto') ?>" class="user-image" alt="">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><?php echo $this->session->userdata('ses_name') ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img id="foto-header-inside" src="" class="img-circle" alt="User Image">
+                <img id="foto-header-inside" src="<?php echo IMG_URL.$this->session->userdata('ses_foto') ?>" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo $this->session->userdata('ses_name') ?>
