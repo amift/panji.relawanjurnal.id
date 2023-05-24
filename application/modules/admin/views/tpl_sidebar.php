@@ -18,7 +18,7 @@
                 <li><a href="<?php echo base_url('admin/jurnal')?>"><i class="fa fa-book"></i> <span>Jurnal</span></a></li>
                 <li class="header" style="color:#ffff00">Master</li>
                 <li><a href="<?php echo base_url('admin/provinsi')?>"><i class="fa fa-map-marker"></i> <span>Provinsi</span></a></li>
-                <li><a href="<?php echo base_url('admin/indeksasi')?>"><i class="fa fa-tags"></i> <span>Indeksasi</span></a></li>
+                <!-- <li><a href="<?php echo base_url('admin/indeksasi')?>"><i class="fa fa-tags"></i> <span>Indeksasi</span></a></li> -->
                 <li><a href="<?php echo base_url('admin/lisensi')?>"><i class="fa fa-anchor"></i> <span>Lisensi</span></a></li>
                 <li><a href="<?php echo base_url('admin/frekterbitan')?>"><i class="fa fa-quote-left"></i> <span>Frekuensi terbitan</span></a></li>
                 <li><a href="<?php echo base_url('admin/waktureview')?>"><i class="fa fa-clock-o"></i> <span>Waktu Review</span></a></li>                
