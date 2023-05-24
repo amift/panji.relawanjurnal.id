@@ -228,7 +228,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Statistik";
+                                            echo "URL Statistik Jurnal";
                                             echo form_input('input_statistik', set_value('input_statistik', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
@@ -237,7 +237,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Indeksasi";
+                                            echo "URL Indeksasi Jurnal";
                                             echo form_input('input_indeksasi', set_value('input_indeksasi', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
@@ -246,7 +246,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL oai";
+                                            echo "URL oai Jurnal";
                                             echo form_input('input_oai', set_value('input_oai', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
@@ -264,7 +264,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <?php
-                                            echo "URL Kontak";
+                                            echo "URL Kontak Jurnal";
                                             echo form_input('input_kontak', set_value('input_kontak', '', FALSE), 'class="form-control" ');
                                         ?>
                                         <span class="invalid-feedback"></span>
