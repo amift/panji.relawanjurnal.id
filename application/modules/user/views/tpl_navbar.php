@@ -43,7 +43,7 @@
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a class="btn btn-default btn-flat" href="<?php echo base_url('admin/profile').'/edit_password/' ?> " title="Ganti Password" > Ganti Password</a> 
+                    <!-- <a class="btn btn-default btn-flat" href="<?php echo base_url('admin/profile').'/edit_password/' ?> " title="Ganti Password" > Ganti Password</a>  -->
                   </div>
                   <div class="col-xs-4 text-center">
                   </div>
