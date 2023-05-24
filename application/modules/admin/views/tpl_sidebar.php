@@ -25,7 +25,7 @@
                 <!-- <li><a href="<?php echo base_url('admin/groups')?>"><i class="fa fa-users"></i> <span>Groups</span></a></li> -->
                 <li><a href="<?php echo base_url('admin/user')?>"><i class="fa fa-user"></i> <span>User</span></a></li>
                 <li class="header" style="color:#ffff00">Sistem</li>                
-                <li><a href="<?php echo base_url('admin/emailtemplate')?>"><i class="fa fa-envelope"></i> <span>Email Template</span></a></li>
+                <!-- <li><a href="<?php echo base_url('admin/emailtemplate')?>"><i class="fa fa-envelope"></i> <span>Email Template</span></a></li> -->
                 <li><a href="<?php echo base_url('admin/emailsetting')?>"><i class="fa fa-envelope"></i> <span>Email Config</span></a></li>                
                 <li><a href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
             </ul>
