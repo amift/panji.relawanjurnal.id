@@ -30,7 +30,7 @@ class Verify extends CI_Controller {
   public function key_check($code){
   	$result = $this->m_data->get_it(['verification_key' => $code]);
 	  if ( !empty($result) ) {
-	  	$data = ['verification_key' => '', 'is_verified' => 'yes','active' => 'yes'];
+	  	$data = ['verification_key' => '', 'is_verified' => 'yes','is_active' => 'yes'];
 	  	$where = ['id' => $result->id];
 	  	$this->m_data->update($data, $where);
 	  	$this->success();
