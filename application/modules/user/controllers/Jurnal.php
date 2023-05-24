@@ -205,13 +205,13 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_email_editor',	      'email_editor',     'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_url_editor',	        'url_editor',       'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_url',	              'URL Jurnal',       'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_kontak',	            'URL kontak',       'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_reviewer',	          'URL reviewer',     'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_statistik',	        'URL statistik',    'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_etika',	            'URL etika',        'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_indeksasi',	        'URL Indeksasi',    'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_oai',	              'URL oai',          'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_doi',	              'URL doi',          'trim|max_length[255]|required');
+				$this->form_validation->set_rules('input_kontak',	            'URL kontak',       'trim|max_length[255]');
+				$this->form_validation->set_rules('input_reviewer',	          'URL reviewer',     'trim|max_length[255]');
+				$this->form_validation->set_rules('input_statistik',	        'URL statistik',    'trim|max_length[255]');
+				$this->form_validation->set_rules('input_etika',	            'URL etika',        'trim|max_length[255]');
+				$this->form_validation->set_rules('input_indeksasi',	        'URL Indeksasi',    'trim|max_length[255]');
+				$this->form_validation->set_rules('input_oai',	              'URL oai',          'trim|max_length[255]');
+				$this->form_validation->set_rules('input_doi',	              'URL doi',          'trim|max_length[255]');
 		}  
 
 }
