@@ -57,14 +57,14 @@ class Jurnal extends MY_Controller {
 
 							if ($this->is_related($db_data->id)) {
 								$row[]   = '<div class="text-center">
-												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
-												<a class="btn btn-xs btn-default disabled" href="javascript:void(0)" title="Relational Data" ><i class="fa fa-trash"></i> </a>
-											</div>';
+															<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+															<a class="btn btn-xs btn-default disabled" href="javascript:void(0)" title="Relational Data" ><i class="fa fa-trash"></i> </a>
+														</div>';
 							}else{
 								$row[]   = '<div class="text-center">
-												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
-												<a class ="btn btn-xs btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
-											</div>';
+															<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+															<a class ="btn btn-xs btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
+														</div>';
 							}
 
 
