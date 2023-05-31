@@ -29,6 +29,14 @@
             <li>Inovasi dalam pengelolaan jurnal ilmiah</li>
           </ol>
         </p>
+
+        <h3>Jurnal terpilih memperoleh layanan GRATIS RJI berupa:</h3>
+        <ol>          
+          <li>Pendampingan tim ahli</li>
+          <li>Customisasi website</li>
+          <li>Proofread artikel</li>
+          <li>Pendampingan internasionaliasi editorial board dan author</li>
+        </ol>
         
       </article>
       <!-- /Article -->
