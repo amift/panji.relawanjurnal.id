@@ -29,11 +29,11 @@ class Mfcrypt{
 	 	if ($opt=='e') {
 	        $enc_data = $this->enc($string);
 	        if ($url_safe){
-	            $enc_data = strtr($enc_data,array('+' => 'wrotj','=' => 'h6hs4','/' => 'idurj'));
+	            $enc_data = base64_encode($enc_data);
 	        }
 	        $result=$enc_data;
 	 	}else{
-	        $dec_data = strtr($string,array('wrotj' => '+','h6hs4' => '=','idurj' => '/'));
+	        $dec_data = base64_decode($string);
 	        $result= $this->dec($dec_data);
 	 	}
 	    return $result;
