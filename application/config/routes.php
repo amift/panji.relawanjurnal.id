@@ -58,6 +58,8 @@ $route['admin/user']     = 'admin/user';
 
 $route['user']           = 'user/home/index';
 
+$route['penilai']        = 'penilai/home/index';
+
 $route['home']           = 'web/home';
 $route['terms']          = 'web/terms';
 $route['about']          = 'web/about';
