@@ -186,8 +186,8 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <?php 
-                                                        echo "Sitasi";
-                                                        echo form_dropdown('input_sitasi',$arr_sitasi,set_value('input_sitasi','',FALSE),'class="form-control" ');
+                                                        echo "Diversitas Sitasi";
+                                                        echo form_dropdown('input_sitasi',$arr_grade,set_value('input_sitasi','',FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -204,18 +204,7 @@
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                                    p.relevansi,
-                                                    p.kualitas,
-                                                    p.editorial,
-                                                    p.pengeditan,
-                                                    p.peer_review,
-                                                    p.tata_kelola_jurnal,
-                                                    p.diver_penulis,
-                                                    p.diver_dewan_redaksi,
-                                                    p.sitasi,
-                                                    p.inovasi';                                        
+                                        </div>                                 
                                     </div>
                                 </form>
 
