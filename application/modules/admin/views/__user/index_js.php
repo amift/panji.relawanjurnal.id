@@ -34,6 +34,7 @@
                 $('[name="input_email"]').val(callback.email);
                 $('[name="input_institusi"]').val(callback.institusi);
                 $('[name="input_provinsi_id"]').val(callback.provinsi_id);
+                $('[name="input_level"]').val(callback.level);
             },
             error: function (jqXHR, textStatus, errorThrown){
                 alert('Error get data from ajax');

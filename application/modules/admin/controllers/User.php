@@ -20,6 +20,7 @@ class User extends MY_Controller {
 
 		public function index(){
 			$invoke['arr_provinsi'] = $this->m_provinsi->get_data_as_array('-- Provinsi --');
+			$invoke['arr_level'] = ['admin' => 'admin', 'user' => 'user', 'penilai' => 'penilai'];
 
 			$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 			$invoke['jsfile']       = 'index_js.php';
@@ -38,6 +39,16 @@ class User extends MY_Controller {
 							$is_verified = ($db_data->is_verified == 'yes')?'<i class="fa fa-check verified"></i>':'<i class="fa fa-times unverified"></i>';
 							$is_active = ($db_data->is_active == 'yes')?'<i class="fa fa-check active"></i>':'<i class="fa fa-times inactive"></i>';
 
+							if ($db_data->level == 'admin') {
+								$level = '<span class="label label-warning">'.$db_data->level.'</span>';
+							}elseif($db_data->level == 'penilai'){
+								$level = '<span class="label label-primary">'.$db_data->level.'</span>';
+							}elseif($db_data->level == 'user'){
+								$level = '<span class="label label-info">'.$db_data->level.'</span>';
+							}else{
+								$level = '<span class="label label-danger">Error</span>';
+							}
+
 
 							$row[]   = '<div class="text-center">
 																<a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
@@ -46,9 +57,10 @@ class User extends MY_Controller {
 							$row[]   = '<div>
 															<b>Username : </b>'.$db_data->username.'<br>
 															<b>Nama : </b>'.$db_data->name.'<br>
+															<b>Level : </b>'.$level.'<br>
 												  </div>';
 							$row[]   = '<div>
-															<b>Nama : </b>'.$db_data->telepon.'<br>
+															<b>Telepon : </b>'.$db_data->telepon.'<br>
 															<b>Email : </b>'.$db_data->email.'<br>
 												  </div>';
 							$row[]  = $db_data->institusi;
@@ -75,7 +87,7 @@ class User extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, institusi, provinsi_id');        
+	        $data = $this->m_data->get_it(['id'=>$id], 'id, username, name, email, institusi, level, provinsi_id');        
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];
@@ -137,8 +149,8 @@ class User extends MY_Controller {
 			if ($mode=='edit') {
 			}else{
 			}	
-	        $this->form_validation->set_rules('input_username'  ,'Username' ,'trim|max_length[100]|required');
-	        $this->form_validation->set_rules('input_name'  ,'Nama' ,'trim|max_length[100]|required');
+	        $this->form_validation->set_rules('input_username'  ,'Username' ,'trim|max_length[50]|required');
+	        $this->form_validation->set_rules('input_name'  ,'Nama' ,'trim|max_length[150]|required');
 	        $this->form_validation->set_rules('input_email'  ,'Email' ,'trim|valid_email|max_length[255]|required');
 	        $this->form_validation->set_rules('input_provinsi_id'  ,'Provinsi' ,'trim|max_length[3]|required');
 		}  

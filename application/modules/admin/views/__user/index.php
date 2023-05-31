@@ -46,7 +46,7 @@
                         <h3><div id="label"></div></h3>
                         <hr>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <?php
                                         echo "Username";
@@ -55,9 +55,7 @@
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <div class="form-group">
                                     <?php
                                         echo "Nama";
@@ -95,6 +93,17 @@
                                     <?php 
                                         echo "Provinsi";
                                         echo form_dropdown('input_provinsi_id',$arr_provinsi,set_value('input_provinsi_id','',FALSE),'class="form-control" ');
+                                    ?>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <?php 
+                                        echo "Level";
+                                        echo form_dropdown('input_level',$arr_level,set_value('input_level','',FALSE),'class="form-control" ');
                                     ?>
                                     <span class="invalid-feedback"></span>
                                 </div>

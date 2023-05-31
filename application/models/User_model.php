@@ -23,6 +23,7 @@ class User_model extends MY_Model {
 												u.provinsi_id,
 												p.name as provinsi_nama, 
 												u.institusi, 
+												u.level,
 												u.is_verified, 
 												u.is_active, 
 												u.last_login ';
@@ -31,7 +32,7 @@ class User_model extends MY_Model {
 	}
 
 	public function query_data(){
-		$sql  = ' SELECT id, username, name, email, telepon, foto, provinsi_id, provinsi_nama, institusi, is_verified, is_active, last_login ';
+		$sql  = ' SELECT id, username, name, email, telepon, foto, provinsi_id, provinsi_nama, institusi, level, is_verified, is_active, last_login ';
 		$sql .= ' FROM '.$this->sql_view;
 		return $sql;
 	}
