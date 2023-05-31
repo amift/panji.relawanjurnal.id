@@ -70,6 +70,7 @@ class Jurnal extends MY_Controller {
 														  <b>Frek. terbitan : </b>'.$db_data->frek_terbitan_nama.'<br>
 														  <b>Waktu review : </b>'.$db_data->waktu_review_nama.'<br>
 														  <b>Akreditasi SINTA : </b>'.$db_data->akre_sinta.'<br>
+														  <b>Sitasi Artikel : </b>'.$db_data->sitasi.'<br>
 												  </div>';
 							$row[]   = '<div>
 															<b>Nama editor : </b>'.$db_data->nama_editor.'<br>
@@ -104,7 +105,7 @@ class Jurnal extends MY_Controller {
 
 	  public function edit($id=null){
 	      if ($this->input->is_ajax_request()) {      
-	        $data = $this->m_data->get_it(['id'=>$id],'id, nama, eissn, pissn, penerbit, provinsi_id, tahun_terbit, akre_sinta, lisensi_id, frek_terbitan_id, waktu_review_id, nama_editor, telepon_editor, email_editor, url, url_editor, kontak, reviewer, etika, statistik, indeksasi, oai, doi');
+	        $data = $this->m_data->get_it(['id'=>$id],'id, nama, eissn, pissn, penerbit, provinsi_id, tahun_terbit, akre_sinta, lisensi_id, frek_terbitan_id, waktu_review_id, nama_editor, telepon_editor, email_editor, url, url_editor, kontak, reviewer, etika, statistik, indeksasi, oai, doi, sitasi');
 	        echo json_encode($data);
 	      }else{
 	      	$output=['status' => 'false'];

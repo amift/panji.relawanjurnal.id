@@ -35,6 +35,9 @@
         .invalid-feedback{
           color: Red;
         }
+        .invalid-box{
+            box-shadow: 0 0 3px #CC0000;
+        }
         #hidefilenput,
         #file-upload {
             display: none;

@@ -149,6 +149,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <?php
+                                        echo "Sitasi artikel yang terbit";
+                                        echo form_input('input_sitasi', set_value('input_sitasi', '', FALSE), 'class="form-control" ');
+                                    ?>
+                                    <b>Isi dengan :</b> Tidak ada / Tidak tahu <br>
+                                    Jika ada silahkan ketik jumlahnya
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel panel-success">
                           <div class="panel-body">
                               <span style="font-size: 18px"><b>Data Editor</b></span>

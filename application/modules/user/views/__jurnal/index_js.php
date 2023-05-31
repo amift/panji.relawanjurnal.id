@@ -39,6 +39,7 @@
                 $('[name="input_lisensi_id"]').val(callback.lisensi_id);
                 $('[name="input_frek_terbitan_id"]').val(callback.frek_terbitan_id);
                 $('[name="input_waktu_review_id"]').val(callback.waktu_review_id);
+                $('[name="input_sitasi"]').val(callback.sitasi);
                 $('[name="input_nama_editor"]').val(callback.nama_editor);
                 $('[name="input_telepon_editor"]').val(callback.telepon_editor);
                 $('[name="input_email_editor"]').val(callback.email_editor);
