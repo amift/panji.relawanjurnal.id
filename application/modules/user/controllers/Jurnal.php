@@ -209,7 +209,7 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_pissn',	            'pissn',            'trim|max_length[20]');
 				$this->form_validation->set_rules('input_penerbit',	          'penerbit',         'trim|max_length[200]|required');
 				$this->form_validation->set_rules('input_tahun_terbit',	      'tahun_terbit',     'trim|max_length[255]|required');
-				$this->form_validation->set_rules('input_akre_sinta',	        'akreditasi sinta', 'trim|max_length[2]|required');
+				$this->form_validation->set_rules('input_akre_sinta',	        'akreditasi sinta', 'trim|max_length[2]');
 				$this->form_validation->set_rules('input_nama_editor',	      'nama_editor',      'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_telepon_editor',	    'telepon_editor',   'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_email_editor',	      'email_editor',     'trim|max_length[255]|required');
