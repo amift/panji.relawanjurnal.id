@@ -32,7 +32,9 @@
 }
 
 .btn-outline{
-    color: #000 !important;
+    color: #ff0000 !important;
+    border: 1px solid #ff0000;
+    background-color: transparent !important;
 }
 
 .text-outline {
@@ -60,7 +62,8 @@
 }
 
 .text-outline:hover{
-    color: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000;
 }
 
 .btn-primary.btn-outline:hover,
@@ -68,5 +71,7 @@
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-    color: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000;
+    transition: all .2s;
 }

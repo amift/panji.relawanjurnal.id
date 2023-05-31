@@ -204,6 +204,18 @@
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <?php 
+                                                        echo "Catatan tambahan";
+                                                        echo form_textarea('input_catatan','',set_value('input_catatan','',FALSE),'class="form-control" ');
+                                                    ?>
+                                                    <span class="invalid-feedback"></span>
+                                                </div>
+                                            </div>
                                         </div>                                 
                                     </div>
                                 </form>

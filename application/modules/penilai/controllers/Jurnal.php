@@ -58,7 +58,7 @@ class Jurnal extends MY_Controller {
 							$secure_id = $this->mfcrypt->secureit($db_data->id);
 
 							$row[]   = '<div class="text-center">
-														<a class ="btn btn-sm btn-info btn-outline" href="'.base_url('penilai/jurnal/nilai/').$secure_id.'" title="Penilaian"><i class="fa fa-edit"></i> Lihat Penilaian</a> 
+														<a class ="btn btn-sm btn-info btn-outline" href="'.base_url('penilai/jurnal/nilai/').$secure_id.'" title="Penilaian"><i class="fa fa-edit"></i> Penilaian</a> 
 													</div>';
 
 
@@ -67,6 +67,10 @@ class Jurnal extends MY_Controller {
 														  '.$db_data->user_nama.'
 												  </div>';
 							$row[]   = '<div>
+															<b>Nama editor : </b>'.$db_data->nama_editor.'<br>
+															<b>Telepon editor : </b>'.$db_data->telepon_editor.'<br>
+															<b>Email editor : </b>'.$db_data->email_editor.'<br>
+															<hr>
 														  <b>Nama Jurnal : </b>'.$db_data->nama.'<br>
 														  <b>E-ISSN : </b>'.$db_data->eissn.'<br>
 														  <b>P-ISSN : </b>'.$db_data->pissn.'<br>
@@ -77,11 +81,6 @@ class Jurnal extends MY_Controller {
 														  <b>Frek. terbitan : </b>'.$db_data->frek_terbitan_nama.'<br>
 														  <b>Waktu review : </b>'.$db_data->waktu_review_nama.'<br>
 														  <b>Akreditasi SINTA : </b>'.$db_data->akre_sinta.'<br>
-												  </div>';
-							$row[]   = '<div>
-															<b>Nama editor : </b>'.$db_data->nama_editor.'<br>
-															<b>Telepon editor : </b>'.$db_data->telepon_editor.'<br>
-															<b>Email editor : </b>'.$db_data->email_editor.'<br>
 												  </div>';
 							$row[]   = '<div>
 															'.$url.'<br>
