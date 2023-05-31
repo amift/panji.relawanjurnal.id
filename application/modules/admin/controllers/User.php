@@ -111,6 +111,7 @@ class User extends MY_Controller {
 				'input_email'        =>  form_error('input_email'),
 				'input_institusi'    =>  form_error('input_institusi'),				
 				'input_provinsi_id'  =>  form_error('input_provinsi_id'),
+				'input_level'    =>  form_error('input_level'),				
 			);
 			return $errors;
 		}
@@ -124,6 +125,7 @@ class User extends MY_Controller {
 				'email'        => html_escape($this->input->post('input_email')),
 				'institusi'    => html_escape($this->input->post('input_institusi')),
 				'provinsi_id'  => html_escape($this->input->post('input_provinsi_id')),
+				'level'    => html_escape($this->input->post('input_level')),
     	);
 			if ($mode=='edit') {
 			}else{
@@ -162,6 +164,7 @@ class User extends MY_Controller {
 	        $this->form_validation->set_rules('input_name'  ,'Nama' ,'trim|max_length[150]|required');
 	        $this->form_validation->set_rules('input_email'  ,'Email' ,'trim|valid_email|max_length[255]|required');
 	        $this->form_validation->set_rules('input_provinsi_id'  ,'Provinsi' ,'trim|max_length[3]|required');
+	        $this->form_validation->set_rules('input_level'  ,'Level' ,'trim|max_length[10]|required');
 		}  
 
 }
