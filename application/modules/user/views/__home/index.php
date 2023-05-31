@@ -5,27 +5,25 @@
         <div class="panel panel-default wrap-table">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="info-box">
-                        <span class="info-box-icon bg-aqua"><i class="fa fa-book"></i></span>
-                        <div class="info-box-content">
-                          <span class="info-box-text">Jurnal Saya</span>
-                          <span class="info-box-number"><?php echo $myjurnal; ?> </span>
+                    <div class="col-xs-12">
+                      <h3>Selamat datang <b><?php echo $this->session->userdata('ses_name') ?></b> sebagai Pengusul</h3>
+                    </div>                      
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                      <div class="small-box bg-aqua">
+                        <div class="inner">
+                          <h3><?php echo $myjurnal; ?></h3>
+                          <p>Jurnal yang saya diajukan</p>
                         </div>
+                        <div class="icon">
+                          <i class="fa fa-book"></i>
+                        </div>
+                        <a href="<?php echo base_url('user/jurnal') ?> " class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
-
-<!--                     <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="info-box">
-                        <span class="info-box-icon bg-green"><i class="fa fa-pencil-square-o"></i></span>
-                        <div class="info-box-content">
-                          <span class="info-box-text">Pengajuan</span>
-                          <span class="info-box-number">1</span>
-                        </div>
-                      </div>
-                    </div> -->
-                </div>                
-
+                </div>
             </div>
         </div>
     </section>
