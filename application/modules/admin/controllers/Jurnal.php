@@ -68,7 +68,7 @@ class Jurnal extends MY_Controller {
 							}
 
 
-							$row[]   = '<div>
+							$row[]   = '<div class="text-center">
 														  <img id="foto" width="120" class="img-responsive center-block rounded-circle img-thumbnail shadow" src="'.IMG_URL.$db_data->user_foto.'" alt=""><br>
 														  '.$db_data->user_nama.'
 												  </div>';
