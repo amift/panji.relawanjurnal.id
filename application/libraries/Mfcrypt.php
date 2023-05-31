@@ -29,11 +29,11 @@ class Mfcrypt{
 	 	if ($opt=='e') {
 	        $enc_data = $this->enc($string);
 	        if ($url_safe){
-	            $enc_data = strtr($enc_data,array('+' => 'gGgG','=' => 'yYyY','/' => 'wWwW'));
+	            $enc_data = strtr($enc_data,array('+' => 'wrotj','=' => 'h6hs4','/' => 'idurj'));
 	        }
 	        $result=$enc_data;
 	 	}else{
-	        $dec_data = strtr($string,array('gGgG' => '+','yYyY' => '=','wWwW' => '/'));
+	        $dec_data = strtr($string,array('wrotj' => '+','h6hs4' => '=','idurj' => '/'));
 	        $result= $this->dec($dec_data);
 	 	}
 	    return $result;
