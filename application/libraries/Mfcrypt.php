@@ -25,31 +25,29 @@ class Mfcrypt{
 	    $this->iv = substr( hash( 'sha256', $this->secret_iv ), 0, 16 );
     }
 
-    public function secureit($string,$opt='e',$url_safe=true){
-	 	if ($opt=='e') {
-	        $enc_data = $this->enc($string);
-	        if ($url_safe){
-	            $enc_data = base64_encode($enc_data);
-	        }
-	        $result=$enc_data;
-	 	}else{
-	        $dec_data = base64_decode($string);
-	        $result= $this->dec($dec_data);
-	 	}
+    public function encrypt($string){
+      $enc_data = $this->enc($string);
+      $result = base64_encode($enc_data);
 	    return $result;
     }
 
-	public function enc( $string ) {
-	    $output = false;
+    public function decrypt($string){
+      $dec_data = base64_decode($string);
+      $result= $this->dec($dec_data);
+	    return $result;
+    }
 
-		$output = openssl_encrypt( $string, $this->encrypt_method, $this->key, 0, $this->iv );
-	    return $output;
-	}
+		public function enc( $string ) {
+		    $output = false;
 
-	public function dec( $string ) {
-	    $output = false;
-		$output = openssl_decrypt($string, $this->encrypt_method, $this->key, 0, $this->iv );
-	    return $output;
-	}	
+			$output = openssl_encrypt( $string, $this->encrypt_method, $this->key, 0, $this->iv );
+		    return $output;
+		}
+
+		public function dec( $string ) {
+		    $output = false;
+			$output = openssl_decrypt($string, $this->encrypt_method, $this->key, 0, $this->iv );
+		    return $output;
+		}	
 
 }
