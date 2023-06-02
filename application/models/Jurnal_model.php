@@ -64,9 +64,12 @@ class Jurnal_model extends MY_Model {
 		return $sql;
 	}
 
-	public function get_data($keyword){
+	public function get_data($keyword=null, $field=null){
     if ($keyword!=null) {
         $this->db->where($keyword);
+    }
+    if ($field!=null) {
+        $this->db->select($field);
     }
 		$this->db->from($this->sql_view);
 		$query = $this->db->get();
