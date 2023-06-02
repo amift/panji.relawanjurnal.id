@@ -20,8 +20,9 @@ class Home extends MY_Controller {
 	public function index(){
 
 		$invoke['jurnal']     =  $this->m_jurnal->get_rows();
+		$invoke['jurnal_dinilai']     =  $this->m_jurnal->get_rows(['status' => '1']);
 		$invoke['penilai']    =  $this->m_data->get_rows(['level' => 'penilai']);
-		$invoke['users']      =  $this->m_data->get_rows(['level' => 'user']);
+		$invoke['pengusul']     =  $this->m_data->get_rows(['level' => 'user']);
 
 		$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 		$invoke['jsfile']       = 'index_js.php';
