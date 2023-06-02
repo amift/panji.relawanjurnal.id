@@ -128,8 +128,8 @@
                                                 // print_r($key);
                                                 // echo  '<dt>data_penilaian</dt> <dd>'.$key->data_penilaian.'</dd>';
                                                 echo  '<span style="margin-left: -12px;">No. '.$no++.'</span>';
-                                                echo  '<li>Penilai '.$key->user_nama.'</li>';
-                                                echo  '<li>Tanggal /  Waktu '.$key->tanggal.' - '.$key->waktu.'</li>';
+                                                echo  '<li>Penilai : '.$key->user_nama.'</li>';
+                                                echo  '<li>Tanggal /  Waktu : '.$key->tanggal.' - '.$key->waktu.'</li>';
                                                 echo '<br>';
                                             }
                                         ?>
