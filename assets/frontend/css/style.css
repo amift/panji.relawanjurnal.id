@@ -77,6 +77,11 @@ element.style {
 	-o-transition: all 0.4s ease-out;
 	transition: all 0.4s ease-out;
 }
+
+.navbar-nav li:hover{
+	transition: all 0.4s ease-out;
+}
+
 .navbar-nav .dropdown-menu {
 	left: -5px;
 	font-size: 13px;
