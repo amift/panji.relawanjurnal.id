@@ -16,6 +16,8 @@ class Jurnal extends MY_Controller {
 
       $this->load->model('Jurnal_model','m_data');
 
+			$this->load->model('Penilaian_model','m_penilaian');
+      $this->load->model('Penilaian_logs_model','m_plogs');
       $this->load->model('Lisensi_model','m_lisensi');
       $this->load->model('Frekterbitan_model','m_frekterbitan');
       $this->load->model('Waktureview_model','m_waktureview');
@@ -54,16 +56,33 @@ class Jurnal extends MY_Controller {
 							$oai        = ($db_data->oai)?'<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a>':'URL oai [kosong]';
 							$doi        = ($db_data->doi)?'<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a>':'URL Doi [kosong]';
 
+							$secure_id = $this->mfcrypt->encrypt($db_data->id);
+							$penilaian = $this->m_plogs->get_rows(['jurnal_id' => $db_data->id]);
+
 
 							if ($this->is_related($db_data->id)) {
 								$row[]   = '<div class="text-center">
-												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
-												<a class="btn btn-xs btn-default disabled" href="javascript:void(0)" title="Relational Data" ><i class="fa fa-trash"></i> </a>
+													<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+													<a class="btn btn-xs btn-default disabled" href="javascript:void(0)" title="Relational Data" ><i class="fa fa-trash"></i> </a>
+													</div>
+													<hr>
+													<div class="text-center">
+													<a href="'.base_url('admin/jurnal/nilai/').$secure_id.'" class="btn btn-app">
+													   <span class="badge bg-green">'.$penilaian.'</span>
+													   <i class="fa fa-calendar-check-o"></i> Penilaian
+													</a>												
 											</div>';
 							}else{
 								$row[]   = '<div class="text-center">
-												<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
-												<a class ="btn btn-xs btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
+														<a class ="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
+														<a class ="btn btn-xs btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
+													</div>
+													<hr>
+													<div class="text-center">
+														<a href="'.base_url('admin/jurnal/nilai/').$secure_id.'" class="btn btn-app">
+														   <span class="badge bg-green">'.$penilaian.'</span>
+														   <i class="fa fa-calendar-check-o"></i> Penilaian
+														</a>												
 											</div>';
 							}
 
@@ -234,4 +253,32 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_doi',	              'doi',              'trim|max_length[255]|required');
 		}  
 
+		// ADD here additional process
+
+	  public function nilai($id){
+				$valid_id = $this->mfcrypt->decrypt($id);
+
+				$invoke['arr_grade']    = ['Belum dinilai' => 'Belum dinilai',
+																		'Sangat Baik' => 'Sangat Baik',
+																		'Baik' => 'Baik',
+																		'Cukup' => 'Cukup',
+																		'Kurang' => 'Kurang'
+																	 ];
+				$invoke['arr_nilai']    = ['Belum dinilai' => 'Belum dinilai',
+																		'1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'];
+				$invoke['arr_sitasi']    = ['Belum dinilai' => 'Belum dinilai',
+																		'Ada' => 'Ada',
+																		'Tidak ada' => 'Tidak ada',
+																		'Tidak tahu' => 'Tidak tahu'
+																	 ];
+
+				$invoke['jurnal_id']    = $id;
+				$invoke['jurnal']       = $this->m_data->get_data(['id' => $valid_id]);
+				$invoke['penilaian']    = $this->m_penilaian->get_data(['id' => $valid_id]);
+				$invoke['penilaian_logs']    = $this->m_plogs->get_data(['jurnal_id' => $valid_id], true);
+
+				$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
+				$invoke['jsfile']       = 'nilai_js.php';
+				$this->load->view('__'.$this->class.'/nilai', $invoke);						
+	  }		
 }
