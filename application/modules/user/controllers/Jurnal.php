@@ -17,6 +17,7 @@ class Jurnal extends MY_Controller {
       $this->load->model('Jurnal_model','m_data');
 
       $this->load->model('Lisensi_model','m_lisensi');
+      $this->load->model('Penilaian_model','m_penilaian');    
       $this->load->model('Frekterbitan_model','m_frekterbitan');
       $this->load->model('Waktureview_model','m_waktureview');
       $this->load->model('Provinsi_model','m_provinsi');
@@ -145,6 +146,7 @@ class Jurnal extends MY_Controller {
     protected function data_post($mode){
 
     	$data = array(
+    		'user_id'          => $this->session->userdata('ses_id'),
 				'nama'             => html_escape($this->input->post('input_nama')),
 				'eissn'            => html_escape($this->input->post('input_eissn')),
 				'pissn'            => html_escape($this->input->post('input_pissn')),
@@ -180,7 +182,8 @@ class Jurnal extends MY_Controller {
     	return $data;
     }
 
-    protected function after_add($calback){
+    protected function after_add($callback_id){
+    	$this->m_penilaian->insert(['jurnal_id' => $callback_id]);
     }
 
     protected function is_related($id){
