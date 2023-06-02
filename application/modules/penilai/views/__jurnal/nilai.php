@@ -89,6 +89,26 @@
                                         <?php echo $doi ?> <br>
                                     </div>
                                 </div>
+                                <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <span style="font-size: 24px"><b>Riwayat Penilaian</b></span>
+                                    <hr>
+                                    <!-- <?php debugme($penilaian_logs) ?> -->
+                                    <ul>
+                                        <?php  
+                                            $no=1;
+                                            foreach ($penilaian_logs as $key) {
+                                                // print_r($key);
+                                                // echo  '<dt>data_penilaian</dt> <dd>'.$key->data_penilaian.'</dd>';
+                                                echo  '<span style="margin-left: -12px;">No. '.$no++.'</span>';
+                                                echo  '<li>Penilai '.$key->user_nama.'</li>';
+                                                echo  '<li>Tanggal /  Waktu '.$key->tanggal.' - '.$key->waktu.'</li>';
+                                                echo '<br>';
+                                            }
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div> 
                             </div>
                         </div>
                     </div>
