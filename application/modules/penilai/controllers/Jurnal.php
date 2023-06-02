@@ -134,6 +134,7 @@ class Jurnal extends MY_Controller {
 				$invoke['jurnal_id']    = $id;
 				$invoke['jurnal']       = $this->m_data->get_data(['id' => $valid_id]);
 				$invoke['penilaian']    = $this->m_penilaian->get_data(['id' => $valid_id]);
+				$invoke['penilaian_logs']    = $this->m_plogs->get_data(['jurnal_id' => $valid_id], true);
 
 				$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 				$invoke['jsfile']       = 'nilai_js.php';
