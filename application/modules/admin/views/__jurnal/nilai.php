@@ -109,19 +109,29 @@
                                 <span style="font-size: 24px"><b>Riwayat Penilaian</b></span>
                                 <hr>
                                 <!-- <?php debugme($penilaian_logs) ?> -->
-                                <ul>
-                                    <?php  
-                                        $no=1;
-                                        foreach ($penilaian_logs as $key) {
-                                            // print_r($key);
-                                            // echo  '<dt>data_penilaian</dt> <dd>'.$key->data_penilaian.'</dd>';
-                                            echo  '<span style="margin-left: -12px;">No. '.$no++.'</span>';
-                                            echo  '<li>Penilai '.$key->user_nama.'</li>';
-                                            echo  '<li>Tanggal /  Waktu '.$key->tanggal.' - '.$key->waktu.'</li>';
-                                            echo '<br>';
-                                        }
-                                    ?>
-                                </ul>
+                                <?php if (empty($penilaian_logs)) { ?>
+                                    <div class="box-body">
+                                      <div class="alert alert-info alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-info"></i> Infoemasi </h4>
+                                        Belum ada penilaian untuk jurnal ini
+                                      </div>
+                                    </div>
+                                <?php  }else{ ?>
+                                    <ul>
+                                        <?php  
+                                            $no=1;
+                                            foreach ($penilaian_logs as $key) {
+                                                // print_r($key);
+                                                // echo  '<dt>data_penilaian</dt> <dd>'.$key->data_penilaian.'</dd>';
+                                                echo  '<span style="margin-left: -12px;">No. '.$no++.'</span>';
+                                                echo  '<li>Penilai '.$key->user_nama.'</li>';
+                                                echo  '<li>Tanggal /  Waktu '.$key->tanggal.' - '.$key->waktu.'</li>';
+                                                echo '<br>';
+                                            }
+                                        ?>
+                                    </ul>
+                                <?php  } ?>
                             </div>
                         </div>  
                     </div>
