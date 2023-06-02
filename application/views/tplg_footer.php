@@ -45,12 +45,12 @@
       <div class="row">
         <div class="col-md-6 panel">
           <div class="panel-body">
-            <p class="simplenav"> <a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="services.html">Services</a> | <a href="portfolio.html">Portfolio</a> | <a href="contact.html">Contact</a> </p>
+            <p class="simplenav"> <a href="index.html">Home</a> | <a href="about.html">Tentang</a> | <a href="services.html">Daftar</a> | <a href="portfolio.html">Login</a> </p>
           </div>
         </div>
         <div class="col-md-6 panel">
           <div class="panel-body">
-            <p class="text-right"> Copyright &copy; 2014. Template by <a href="http://webthemez.com/" rel="develop">WebThemez.com</a> </p>
+            <p class="text-right"> Copyright &copy; 2023. by <a href="https://relawanjurnal.id/" rel="develop">Relawan Jurnal Indonesia</a> </p>
           </div>
         </div>
       </div>
