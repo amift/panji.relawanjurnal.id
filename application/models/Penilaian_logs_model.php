@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Penilaian_model extends MY_Model {
+class Penilaian_logs_model extends MY_Model {
     
-    var $table  = 'penilaian';
+    var $table  = 'penilaian_logs';
     var $sql_view = '';    
     var $owner  = '';
 
@@ -11,20 +11,11 @@ class Penilaian_model extends MY_Model {
     $this->load->database();
 
 		$this->sql_view  = ' (SELECT 
-													p.id,
-													p.jurnal_id,
-													p.relevansi,
-													p.kualitas,
-													p.editorial,
-													p.pengeditan,
-													p.peer_review,
-													p.tata_kelola_jurnal,
-													p.diver_penulis,
-													p.diver_dewan_redaksi,
-													p.sitasi,
-													p.inovasi,
-													p.catatan';
-		$this->sql_view .= ' FROM penilaian p ';
+													pl.jurnal_id,
+													pl.user_id,
+													pl.data_penilaian,
+													pl.created';
+		$this->sql_view .= ' FROM penilaian_lohs pl ';
 		if (!empty($this->owner)) {
 			$this->sql_view .= ' WHERE '.$this->owner;
 		}

@@ -15,8 +15,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Main Navigation</li>
                 <li><a href="<?php echo base_url('penilai')?>"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="<?php echo base_url('penilai/jurnal')?>"><i class="fa fa-book"></i> <span>Jurnal</span></a></li>
-                <!-- <li><a href="<?php echo base_url('penilai/pengajuam')?>"><i class="fa fa-book"></i> <span>Pengajuan</span></a></li> -->
+                <li><a href="<?php echo base_url('penilai/jurnal')?>"><i class="fa fa-book"></i> <span>Jurnal</span></a></li>                
                 <li><a href="<?php echo base_url('penilai/profile')?>"><i class="fa fa-user"></i> <span>Profile</span></a></li>
                 <li><a href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
             </ul>

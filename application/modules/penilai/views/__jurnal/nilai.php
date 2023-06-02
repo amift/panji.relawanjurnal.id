@@ -50,6 +50,17 @@
                                         <b>Frek. terbitan :   </b> <?php echo $jurnal->frek_terbitan_nama ?> <br>
                                         <b>Waktu review :     </b> <?php echo $jurnal->waktu_review_nama ?> <br>
                                         <b>Akreditasi SINTA : </b> <?php echo $jurnal->akre_sinta ?> <br>
+                                        <b>Sitasi artikel : </b> <span id="jumlah_sitasi"><?php echo $jurnal->sitasi ?></span> <br>
+                                        <hr>
+                                        <div class="input-group input-group-sm">                                                
+                                            <?php 
+                                                echo "Update jumlah Sitasi jika diketahui";
+                                                echo form_input('input_jumlah_sitasi','','class="form-control" ');
+                                            ?>
+                                            <span class="input-group-btn" style="padding-top: 20px">                                                            
+                                                <button onclick="update_sitasi(<?php echo seal_it($jurnal_id) ?>)" type="button" class="btn btn-warning btn-flat"><i class="fa fa-save"></i> Simpan</button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -82,33 +93,28 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Penilaian Jurnal</h3>
-                            </div>
+                        <div class="panel panel-primary">
                             <div class="panel-body">
                                 <span style="font-size: 24px"><b><?php echo $jurnal->nama ?></b></span>
                                 <hr>
                                 <form action="#" id="form">
-                                    <input type="hidden" value="" name="input_id">
+                                    <input type="hidden" value="<?php echo $jurnal_id ?>" name="input_id">
                                     <div class="form-body">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Relevansi Jurnal";
-                                                        echo form_dropdown('input_relevansi',$arr_grade,set_value('input_relevansi','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_relevansi',$arr_grade,set_value('input_relevansi',(empty($penilaian->relevansi))?'':$penilaian->relevansi,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Kualitas Jurnal";
-                                                        echo form_dropdown('input_kualitas',$arr_grade,set_value('input_kualitas','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_kualitas',$arr_grade,set_value('input_kualitas',(empty($penilaian->kualitas))?'':$penilaian->kualitas,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -116,44 +122,40 @@
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Kualitas Editorial";
-                                                        echo form_dropdown('input_editorial',$arr_grade,set_value('input_editorial','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_editorial',$arr_grade,set_value('input_editorial',(empty($penilaian->editorial))?'':$penilaian->editorial,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Kualitas Pengeditan";
-                                                        echo form_dropdown('input_pengeditan',$arr_grade,set_value('input_pengeditan','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_pengeditan',$arr_grade,set_value('input_pengeditan',(empty($penilaian->pengeditan))?'':$penilaian->pengeditan,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Kualitas peer-review";
-                                                        echo form_dropdown('input_peer_review',$arr_grade,set_value('input_peer_review','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_peer_review',$arr_grade,set_value('input_peer_review',(empty($penilaian->peer_review))?'':$penilaian->peer_review,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Kualitas tata kelola jurnal";
-                                                        echo form_dropdown('input_tata_kelola_jurnal',$arr_grade,set_value('input_tata_kelola_jurnal','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_tata_kelola_jurnal',$arr_grade,set_value('input_tata_kelola_jurnal',(empty($penilaian->tata_kelola_jurnal))?'':$penilaian->tata_kelola_jurnal,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -161,11 +163,20 @@
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Diversitas penulis";
-                                                        echo form_dropdown('input_diver_penulis',$arr_nilai,set_value('input_diver_penulis','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_diver_penulis',$arr_nilai,set_value('input_diver_penulis',(empty($penilaian->diver_penulis))?'':$penilaian->diver_penulis,FALSE),'class="form-control" ');
+                                                    ?>
+                                                    <span class="invalid-feedback"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <?php 
+                                                        echo "Diversitas dewan redaksi";
+                                                        echo form_dropdown('input_diver_dewan_redaksi',$arr_nilai,set_value('input_diver_dewan_redaksi',(empty($penilaian->diver_dewan_redaksi))?'':$penilaian->diver_dewan_redaksi,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -175,19 +186,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php 
-                                                        echo "Diversitas dewan redaksi";
-                                                        echo form_dropdown('input_diver_dewan_redaksi',$arr_nilai,set_value('input_diver_dewan_redaksi','',FALSE),'class="form-control" ');
-                                                    ?>
-                                                    <span class="invalid-feedback"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="form-group">
-                                                    <?php 
-                                                        echo "Diversitas Sitasi";
-                                                        echo form_dropdown('input_sitasi',$arr_grade,set_value('input_sitasi','',FALSE),'class="form-control" ');
+                                                        echo "Sitasi artikel yang terbit";
+                                                        echo form_dropdown('input_sitasi',$arr_grade,set_value('input_sitasi',(empty($penilaian->sitasi))?'':$penilaian->sitasi,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -195,11 +195,11 @@
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <div class="form-group">
                                                     <?php 
                                                         echo "Inovasi dalam pengelolaan jurnal ilmiah";
-                                                        echo form_dropdown('input_inovasi',$arr_grade,set_value('input_inovasi','',FALSE),'class="form-control" ');
+                                                        echo form_dropdown('input_inovasi',$arr_grade,set_value('input_inovasi',(empty($penilaian->inovasi))?'':$penilaian->inovasi,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -210,8 +210,8 @@
                                             <div class="col-md-10">
                                                 <div class="form-group">
                                                     <?php 
-                                                        echo "Catatan tambahan";
-                                                        echo form_textarea('input_catatan','',set_value('input_catatan','',FALSE),'class="form-control" ');
+                                                        echo "Catatan tambahan jika ada";
+                                                        echo form_textarea('input_catatan',set_value('input_catatan',(empty($penilaian->catatan))?'':$penilaian->catatan,FALSE),'class="form-control" ');
                                                     ?>
                                                     <span class="invalid-feedback"></span>
                                                 </div>
@@ -226,7 +226,7 @@
                                     <i class="fa fa-refresh"></i> 
                                     Batal
                                 </button>
-                                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">
+                                <button type="button" class="btn btn-primary" id="btnProcess" onclick="process()">
                                     <i class="fa fa-save"></i>
                                     Simpan
                                 </button>

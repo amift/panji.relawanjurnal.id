@@ -16,7 +16,8 @@ class Jurnal extends MY_Controller {
 
       $this->load->model('Jurnal_model','m_data');
 
-      $this->load->model('Penilaian_model','m_penilaian');      
+      $this->load->model('Penilaian_model','m_penilaian');
+      $this->load->model('Penilaian_logs_model','m_plogs');
       $this->load->model('Lisensi_model','m_lisensi');
       $this->load->model('Frekterbitan_model','m_frekterbitan');
       $this->load->model('Waktureview_model','m_waktureview');
@@ -55,10 +56,15 @@ class Jurnal extends MY_Controller {
 							$oai        = ($db_data->oai)?'<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a>':'URL oai [kosong]';
 							$doi        = ($db_data->doi)?'<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a>':'URL Doi [kosong]';
 
-							$secure_id = $this->mfcrypt->secureit($db_data->id);
+							$secure_id = $this->mfcrypt->encrypt($db_data->id);
+							$penilaian = $this->m_plogs->get_rows(['jurnal_id' => $db_data->id]);
+
 
 							$row[]   = '<div class="text-center">
-														<a class ="btn btn-sm btn-info btn-outline" href="'.base_url('penilai/jurnal/nilai/').$secure_id.'" title="Penilaian"><i class="fa fa-edit"></i> Penilaian</a> 
+														<a href="'.base_url('penilai/jurnal/nilai/').$secure_id.'" class="btn btn-app">
+														   <span class="badge bg-green">'.$penilaian.'</span>
+														   <i class="fa fa-calendar-check-o"></i> Penilaian
+														</a>														
 													</div>';
 
 
@@ -109,11 +115,7 @@ class Jurnal extends MY_Controller {
 		}
 
 	  public function nilai($id){
-				$valid_id = $this->mfcrypt->secureit($id,'d');
-
-				$invoke['jurnal_id']    = $id;
-				$invoke['jurnal']       = $this->m_data->get_data(['id' => $valid_id]);
-				$invoke['penilaian']    = $this->m_penilaian->get_data(['id' => $valid_id]);
+				$valid_id = $this->mfcrypt->decrypt($id);
 
 				$invoke['arr_grade']    = ['Belum dinilai' => 'Belum dinilai',
 																		'Sangat Baik' => 'Sangat Baik',
@@ -121,28 +123,85 @@ class Jurnal extends MY_Controller {
 																		'Cukup' => 'Cukup',
 																		'Kurang' => 'Kurang'
 																	 ];
-				$invoke['arr_nilai']    = ['Belum dinilai' => 'Belum dinilai','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'];
+				$invoke['arr_nilai']    = ['Belum dinilai' => 'Belum dinilai',
+																		'1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'];
 				$invoke['arr_sitasi']    = ['Belum dinilai' => 'Belum dinilai',
 																		'Ada' => 'Ada',
 																		'Tidak ada' => 'Tidak ada',
 																		'Tidak tahu' => 'Tidak tahu'
 																	 ];
 
+				$invoke['jurnal_id']    = $id;
+				$invoke['jurnal']       = $this->m_data->get_data(['id' => $valid_id]);
+				$invoke['penilaian']    = $this->m_penilaian->get_data(['id' => $valid_id]);
+
 				$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 				$invoke['jsfile']       = 'nilai_js.php';
 				$this->load->view('__'.$this->class.'/nilai', $invoke);						
 	  }
 
-	  public function get_penilaian($id=null){	  	
-	      if ($this->input->is_ajax_request()) {      
-					$valid_id = $this->mfcrypt->secureit($id,'d');
+	  public function process(){	  	
+	      if ($this->input->is_ajax_request()){
+	      	$valid_id = $this->mfcrypt->decrypt($this->input->post('input_id'));
+		    	$jurnal_id = html_escape($valid_id);
 
-	        $data = $this->m_penilaian->get_it(['jurnal_id' => $valid_id ]);
-	        echo json_encode($data);
+		    	$data_penilaian = array(		    								
+						'relevansi' => html_escape($this->input->post('input_relevansi')),
+						'kualitas' => html_escape($this->input->post('input_kualitas')),
+						'editorial' => html_escape($this->input->post('input_editorial')),
+						'pengeditan' => html_escape($this->input->post('input_pengeditan')),
+						'peer_review' => html_escape($this->input->post('input_peer_review')),
+						'tata_kelola_jurnal' => html_escape($this->input->post('input_tata_kelola_jurnal')),
+						'diver_penulis' => html_escape($this->input->post('input_diver_penulis')),
+						'diver_dewan_redaksi' => html_escape($this->input->post('input_diver_dewan_redaksi')),
+						'sitasi' => html_escape($this->input->post('input_sitasi')),
+						'inovasi' => html_escape($this->input->post('input_inovasi')),
+						'catatan' => html_escape($this->input->post('input_catatan')),
+		    	);
+					$this->m_penilaian->update($data_penilaian,['jurnal_id' => $jurnal_id]);
+
+		    	$json_data_penilaian=json_encode($data_penilaian);		    	
+		    	$this->m_plogs->insert([
+		    											'jurnal_id' => $jurnal_id,
+		    											'user_id' => $this->session->userdata('ses_id'),
+		    											'data_penilaian' => $json_data_penilaian
+		    										]);
+
+		    	$this->m_data->update(['status' => '1'],['id' => $jurnal_id]);
+
+	      	$output['status'] = true;
+	      	$this->output->set_content_type('application/json')->set_output(json_encode($output));		    	
 	      }else{
-	      	$output=['status' => 'false'];
+	      	$output['status'] = false;
+	      	$output['message'] = 'bad request method';
 	      	$this->output->set_content_type('application/json')->set_output(json_encode($output));
 	      }      
+	  }
+
+	  public function update_sitasi($id){
+				if ($this->input->is_ajax_request()) {      
+					$valid_id = $this->mfcrypt->decrypt($id);
+	        $data_jurnal = $this->m_data->get_it(['id' => $valid_id ]);	  		
+	        if (empty($data_jurnal)){
+		      	$output['status']   = false;
+		      	$output['message']  = 'data tidak valid';
+	        }else{
+	        	$jumlah_sitasi = html_escape($this->input->post('j_sitasi'));
+	        	if (is_numeric($jumlah_sitasi)){
+	        		$this->m_data->update(['sitasi' => $jumlah_sitasi], ['id' => $valid_id] );
+							$output['status'] = true;
+							$output['jumlah_sitasi'] = $jumlah_sitasi;
+	        	}else{
+			      	$output['status'] = false;
+			      	$output['message']= 'Harus diisi dengan angka';
+	        	}
+	        }
+			    $this->output->set_content_type('application/json')->set_output(json_encode($output));
+	      }else{
+	      	$output['status'] = false;
+	      	$output['message'] = 'bad request method';	      	
+	      	$this->output->set_content_type('application/json')->set_output(json_encode($output));
+	      }	  	
 	  }
 
 }
