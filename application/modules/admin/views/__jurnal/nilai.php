@@ -92,13 +92,16 @@
                                 <dl class="dl-horizontal">
                                     <dt>Relevansi</dt><dd><?php echo $penilaian->relevansi ?></dd>
                                     <dt>Kualitas</dt><dd><?php echo $penilaian->kualitas ?></dd>
-                                    <dt>Editorial</dt><dd><?php echo $penilaian->editorial ?></dd>
-                                    <dt>Pengeditan</dt><dd><?php echo $penilaian->pengeditan ?></dd>
-                                    <dt>Peer-review</dt><dd><?php echo $penilaian->peer_review ?></dd>
-                                    <dt>Tata kelola jurnal</dt><dd><?php echo $penilaian->tata_kelola_jurnal ?></dd>
-                                    <dt>Diver penulis</dt><dd><?php echo $penilaian->diver_penulis ?></dd>
-                                    <dt>Diver dewan_redaksi</dt><dd><?php echo $penilaian->diver_dewan_redaksi ?></dd>
-                                    <dt>Sitasi</dt><dd><?php echo $penilaian->sitasi ?></dd>
+                                    <hr>
+                                    <dt>Kualitas Editorial</dt><dd><?php echo $penilaian->editorial ?></dd>
+                                    <dt>Kualitas Pengeditan</dt><dd><?php echo $penilaian->pengeditan ?></dd>
+                                    <dt>Kualitas Peer-review</dt><dd><?php echo $penilaian->peer_review ?></dd>
+                                    <dt>Kualitas Tata kelola jurnal</dt><dd><?php echo $penilaian->tata_kelola_jurnal ?></dd>
+                                    <hr>
+                                    <dt>Diversitas penulis</dt><dd><?php echo $penilaian->diver_penulis ?></dd>
+                                    <dt>Diversitas dewan redaksi</dt><dd><?php echo $penilaian->diver_dewan_redaksi ?></dd>
+                                    <dt>Sitasi artikel</dt><dd><?php echo $penilaian->sitasi ?></dd>
+                                    <hr>
                                     <dt>Inovasi</dt><dd><?php echo $penilaian->inovasi ?></dd>
                                     <dt>Catatan</dt><dd><?php echo $penilaian->catatan ?></dd>
                                 </dl>
