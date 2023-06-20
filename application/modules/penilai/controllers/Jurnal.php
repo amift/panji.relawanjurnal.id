@@ -87,6 +87,7 @@ class Jurnal extends MY_Controller {
 														  <b>Frek. terbitan : </b>'.$db_data->frek_terbitan_nama.'<br>
 														  <b>Waktu review : </b>'.$db_data->waktu_review_nama.'<br>
 														  <b>Akreditasi SINTA : </b>'.$db_data->akre_sinta.'<br>
+														  <b>Sitasi Artikel : </b>'.$db_data->sitasi.'<br>
 												  </div>';
 							$row[]   = '<div>
 															'.$url.'<br>
