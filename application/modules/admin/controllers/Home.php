@@ -12,9 +12,7 @@ class Home extends MY_Controller {
       $this->privilegeCheck($this->modul);
 
       $this->load->model('user_model','m_data'); 
-      $this->load->model('jurnal_model','m_jurnal');      
-
-  
+      $this->load->model('jurnal_model','m_jurnal');
     }
 
 	public function index(){
@@ -32,5 +30,22 @@ class Home extends MY_Controller {
 		$this->load->view('__home/index', $invoke);
 	}
 
-
+	public function detail($id){
+		$result = $this->m_data->get_detail_jurnal_by_pengusul($id);
+		echo '<div class="panel panel-info">';
+		echo '	<div class="panel-body">';
+		$no=1;
+		foreach ($result as $key) {
+			$jurnal = explode("|", $key->jurnal);
+			echo $no++.'. '.$key->name.' <span class="pull-right"> '.$key->jumlah.' Jurnal </span> <br>';
+			if( $key->jumlah > 0) {
+			    echo '<ol style="padding-left:25px;">';
+			    echo '<li>' . implode( '</li><li>', $jurnal) . '</li>';
+			    echo '</ol>';
+			}
+			echo '<hr>';
+		}
+		echo '	</div>';
+		echo '</div>';
+	}
 }

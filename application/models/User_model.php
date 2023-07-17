@@ -47,16 +47,27 @@ class User_model extends MY_Model {
 	}
 
 	public function get_stat_of_pengusul(){
-		$this->db->distinct(TRUE);
-    $this->db->select('p.name AS provinsi_nama, COUNT(u.provinsi_id) AS jumlah ');
+    $this->db->select('p.name AS provinsi_nama, COUNT(u.provinsi_id) AS jumlah, provinsi_id')
+    				 ->select('(SELECT count(id) FROM jurnal WHERE jurnal.provinsi_id = u.provinsi_id) AS jurnal')
+    				 ->distinct();
 		$this->db->from('user u');
-    $this->db->join('provinsi p','p.id=u.provinsi_id');    
+    $this->db->join('provinsi p','p.id=u.provinsi_id','INNER');
     $this->db->where('level','user');
     $this->db->group_by('u.provinsi_id');
-    $this->db->order_by('jumlah','DESC');
+    $this->db->order_by('jumlah','DESC')->order_by('provinsi_nama','ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
+	public function get_detail_jurnal_by_pengusul($provinsi_id){
+    $this->db->select('name')
+    				 ->select('(SELECT COUNT(id) FROM jurnal WHERE jurnal.user_id = user.id) AS jumlah')
+    				 ->select('(SELECT GROUP_CONCAT(nama SEPARATOR "|") FROM jurnal WHERE jurnal.user_id = user.id) AS jurnal');
+		$this->db->from('user');
+    $this->db->where('provinsi_id',$provinsi_id);
+    $this->db->where('level','user');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 }
