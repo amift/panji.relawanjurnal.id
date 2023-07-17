@@ -40,7 +40,7 @@ class Home extends MY_Controller {
 			echo $no++.'. '.$key->name.' <span class="pull-right"> '.$key->jumlah.' Jurnal </span> <br>';
 			if( $key->jumlah > 0) {
 			    echo '<ul style="padding-left:25px;">';
-			    echo '<li>' . implode( '</li><li>', $jurnal) . '</li>';
+			    echo '<li class="text text-primary">' . implode( '</li><li>', $jurnal) . '</li>';
 			    echo '</ul>';
 			}
 			echo '<hr>';
