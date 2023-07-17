@@ -39,9 +39,9 @@ class Home extends MY_Controller {
 			$jurnal = explode("|", $key->jurnal);
 			echo $no++.'. '.$key->name.' <span class="pull-right"> '.$key->jumlah.' Jurnal </span> <br>';
 			if( $key->jumlah > 0) {
-			    echo '<ol style="padding-left:25px;">';
+			    echo '<ul style="padding-left:25px;">';
 			    echo '<li>' . implode( '</li><li>', $jurnal) . '</li>';
-			    echo '</ol>';
+			    echo '</ul>';
 			}
 			echo '<hr>';
 		}
