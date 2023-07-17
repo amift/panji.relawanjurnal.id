@@ -59,32 +59,41 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-4">
-                    <div class="text-center">                      
-                      <h3>Statistik Asal Pengusul</h3>
+                    .<div class="panel panel-info">
+                      <div class="panel-body">
+                        <div class="text-center" style="margin-top: -20px">
+                          <h3>Statistik Asal Pengusul</h3>
+                          <p style="margin-top: -10px"><small>Klik angka untuk detail</small></p>
+                        </div>
+                        <div class="col-xs-12 table-responsive">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>No</th>
+                                <th>Provinsi</th>
+                                <th>Jumlah</th>                            
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php 
+                                $no=1;
+                                foreach ($stat_pengusul as $key) {
+                                  echo '<tr>';
+                                  echo '  <td>'.$no++.'</td>';
+                                  echo '  <td>'.$key->provinsi_nama.'</td>';
+                                  echo '  <td class="text-center">
+                                            <button class="statDetail" data-provinsi_id="'.$key->provinsi_id.'"> '
+                                              .$key->jumlah.
+                                            ' </button>
+                                          </td>';
+                                  echo '</tr>';
+                                } 
+                              ?>
+                            </tbody>
+                          </table>
+                        </div>                    
+                      </div>
                     </div>
-                    <div class="col-xs-12 table-responsive">
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>No</th>
-                            <th>Provinsi</th>
-                            <th>Jumlah</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php 
-                            $no=1;
-                            foreach ($stat_pengusul as $key) {
-                              echo '<tr>';
-                              echo '  <td>'.$no++.'</td>';
-                              echo '  <td>'.$key->provinsi_nama.'</td>';
-                              echo '  <td class="text-center">'.$key->jumlah.'</td>';
-                              echo '</tr>';
-                            } 
-                          ?>
-                        </tbody>
-                      </table>
-                    </div>                    
                   </div>
                 </div>             
             </div>
