@@ -46,4 +46,17 @@ class User_model extends MY_Model {
 		return $query->row();
 	}
 
+	public function get_stat_of_pengusul(){
+		$this->db->distinct(TRUE);
+    $this->db->select('p.name AS provinsi_nama, COUNT(u.provinsi_id) AS jumlah ');
+		$this->db->from('user u');
+    $this->db->join('provinsi p','p.id=u.provinsi_id');    
+    $this->db->where('level','user');
+    $this->db->group_by('u.provinsi_id');
+    $this->db->order_by('jumlah','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
 }

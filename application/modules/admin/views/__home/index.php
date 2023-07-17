@@ -56,6 +56,36 @@
                         <a href="<?php echo base_url('admin/user') ?> " class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
                       </div>
                     </div>                    
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="text-center">                      
+                      <h3>Statistik Asal Pengusul</h3>
+                    </div>
+                    <div class="col-xs-12 table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Provinsi</th>
+                            <th>Jumlah</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php 
+                            $no=1;
+                            foreach ($stat_pengusul as $key) {
+                              echo '<tr>';
+                              echo '  <td>'.$no++.'</td>';
+                              echo '  <td>'.$key->provinsi_nama.'</td>';
+                              echo '  <td class="text-center">'.$key->jumlah.'</td>';
+                              echo '</tr>';
+                            } 
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>                    
+                  </div>
                 </div>             
             </div>
         </div>

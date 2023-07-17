@@ -24,6 +24,8 @@ class Home extends MY_Controller {
 		$invoke['penilai']    =  $this->m_data->get_rows(['level' => 'penilai']);
 		$invoke['pengusul']     =  $this->m_data->get_rows(['level' => 'user']);
 
+		$invoke['stat_pengusul']     =  $this->m_data->get_stat_of_pengusul();		
+
 		$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 		$invoke['jsfile']       = 'index_js.php';
 
