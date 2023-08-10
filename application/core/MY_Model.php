@@ -6,7 +6,7 @@
 * year        = 2018
 *
 */
-class MY_Model extends CI_Model {
+class MY_Model extends CI_Model {    
 
     public function __construct(){
         parent::__construct();
@@ -33,7 +33,7 @@ class MY_Model extends CI_Model {
       }
 
       public function count_all(){
-                $query_result = $this->db->query($this->query_data());
+          $query_result = $this->db->query($this->query_data());
           return $query_result->num_rows();
       }
 

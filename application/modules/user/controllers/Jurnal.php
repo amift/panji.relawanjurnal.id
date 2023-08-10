@@ -38,9 +38,9 @@ class Jurnal extends MY_Controller {
 
 		public function list(){
 	      if ($this->input->is_ajax_request()) {
-	      	  $this->m_data->owner='user_id = '.$this->session->userdata('ses_id');
-						$list = $this->m_data->get_datatables('user_id='.$this->session->userdata('ses_id'));
-						// debugme($this->db->last_query());
+	      	  $this->m_data->owner = 'user_id = '.$this->session->userdata('ses_id');
+
+						$list = $this->m_data->get_datatables();						
 						$data = array();
 						foreach ($list as $db_data) {
 							$row     = array();
@@ -60,6 +60,7 @@ class Jurnal extends MY_Controller {
 																<a class ="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('.seal_it($db_data->id).')"><i class="fa fa-edit"></i> </a> 
 																<a class ="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="del('.seal_it($db_data->id).')"><i class="fa fa-trash"></i> </a>
 												  </div>';
+
 							$row[]   = '<div>
 														  <b>Nama Jurnal : </b>'.$db_data->nama.'<br>
 														  <b>E-ISSN : </b>'.$db_data->eissn.'<br>
