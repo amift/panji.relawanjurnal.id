@@ -126,6 +126,7 @@ class Jurnal extends MY_Controller {
 				'input_lisensi_id'	      => form_error('input_lisensi_id'),
 				'input_frek_terbitan_id'	=> form_error('input_frek_terbitan_id'),
 				'input_waktu_review_id'	  => form_error('input_waktu_review_id'),
+				'input_sitasi'	      		=> form_error('input_sitasi'),
 				'input_nama_editor'	      => form_error('input_nama_editor'),
 				'input_telepon_editor'	  => form_error('input_telepon_editor'),
 				'input_email_editor'	    => form_error('input_email_editor'),
@@ -137,7 +138,7 @@ class Jurnal extends MY_Controller {
 				'input_statistik'	        => form_error('input_statistik'),
 				'input_indeksasi'	        => form_error('input_indeksasi'),
 				'input_oai'	              => form_error('input_oai'),
-				'input_doi'	              => form_error('input_doi'),
+				'input_doi'	              => form_error('input_doi'),				
 			);
 			return $errors;
 		}
@@ -157,6 +158,7 @@ class Jurnal extends MY_Controller {
 				'lisensi_id'       => html_escape($this->input->post('input_lisensi_id')),
 				'frek_terbitan_id' => html_escape($this->input->post('input_frek_terbitan_id')),
 				'waktu_review_id'  => html_escape($this->input->post('input_waktu_review_id')),
+				'sitasi'  				 => html_escape($this->input->post('input_sitasi')),				
 				'nama_editor'      => html_escape($this->input->post('input_nama_editor')),
 				'telepon_editor'   => html_escape($this->input->post('input_telepon_editor')),
 				'email_editor'     => html_escape($this->input->post('input_email_editor')),
@@ -172,7 +174,7 @@ class Jurnal extends MY_Controller {
     	);
 			if ($mode=='edit') {
 			}else{
-			}        
+			}
     	return $this->security->xss_clean($data);
     }
 
@@ -214,6 +216,7 @@ class Jurnal extends MY_Controller {
 				$this->form_validation->set_rules('input_penerbit',	          'penerbit',         'trim|max_length[200]|required');
 				$this->form_validation->set_rules('input_tahun_terbit',	      'tahun_terbit',     'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_akre_sinta',	        'akreditasi sinta', 'trim|max_length[2]');
+				$this->form_validation->set_rules('input_sitasi',	      			'sitasi',      			'trim|max_length[15]|required');
 				$this->form_validation->set_rules('input_nama_editor',	      'nama_editor',      'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_telepon_editor',	    'telepon_editor',   'trim|max_length[255]|required');
 				$this->form_validation->set_rules('input_email_editor',	      'email_editor',     'trim|max_length[255]|required');
