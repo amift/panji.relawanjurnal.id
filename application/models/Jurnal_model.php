@@ -57,9 +57,6 @@ class Jurnal_model extends MY_Model {
 		$sql_view .= ' LEFT JOIN provinsi p ON p.id = j.provinsi_id';
 		if (!empty($this->owner)) {
 			$sql_view .= ' WHERE '.$this->owner;
-		}else{
-			debugme('Gagal....');
-			debugme($this->db->last_query(), true);
 		}
 		$sql_view .= ' ) AS sql_view';
 
