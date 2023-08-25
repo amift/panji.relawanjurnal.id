@@ -2,4 +2,4 @@ db/
 application/config/config.php
 application/config/database.php
 assets/*
-!assets/app.js
+!assets/backend/app.js
