@@ -1,3 +1,5 @@
 db/
 application/config/config.php
 application/config/database.php
+assets/*
+!seetss/app.js
