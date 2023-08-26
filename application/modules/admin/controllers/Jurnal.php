@@ -24,7 +24,15 @@ class Jurnal extends MY_Controller {
       $this->load->model('Provinsi_model','m_provinsi');
     }
 
-		public function index(){			
+		public function index(){
+			// info top
+			$invoke['jurnal']     =  $this->m_data->get_rows();
+			$invoke['jurnal_lengkap']     =  $this->m_data->jurnal_lengkap();
+			$invoke['jurnal_tidak_lengkap']     =  $this->m_data->jurnal_tidak_lengkap();
+			$invoke['jurnal_dinilai']     =  $this->m_data->get_rows(['status' => '1']);
+
+
+			// arrya combo data
 			$invoke['arr_lisensi']       = $this->m_lisensi->get_data_as_array('-- Lisensi --','id, nama as name');
 			$invoke['arr_frek_terbitan'] = $this->m_frekterbitan->get_data_as_array('-- Frekuensi Terbitan --','id, nama as name');
 			$invoke['arr_waktu_review']  = $this->m_waktureview->get_data_as_array('-- Waktu Review --','id, nama as name');
@@ -258,7 +266,7 @@ class Jurnal extends MY_Controller {
 				$invoke['jurnal_id']    = $id;
 				$invoke['jurnal']       	= $this->m_data->get_data(['id' => $valid_id]);
 				$invoke['penilaian']    	= $this->m_penilaian->get_data(['id' => $valid_id]);
-				// $invoke['penilaian_logs'] = $this->m_plogs->get_data(['jurnal_id' => $valid_id], true);
+				$invoke['penilaian_logs'] = $this->m_plogs->get_data(['jurnal_id' => $valid_id], true);
 
 				$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 				$invoke['jsfile']       = 'nilai_js.php';

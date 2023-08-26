@@ -60,7 +60,6 @@ class Jurnal_model extends MY_Model {
 			return $sql;		
 		}
 
-
 		public function query_data(){	
 			$sql  = ' SELECT id, user_id, user_nama,user_foto, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi, sitasi';
 			$sql .= ' FROM '.$this->sql_view();
@@ -79,8 +78,53 @@ class Jurnal_model extends MY_Model {
 			return $query->row();
 		}
 
-}
+		public function jurnal_lengkap(){
+			$sql  = ' SELECT id, jum ';
+			$sql .= ' FROM ((';
+			$sql .= ' 	SELECT id, (url_editor+url+kontak+reviewer+statistik+etika+indeksasi+oai+doi) AS jum ';
+			$sql .= ' 	FROM ((';
+			$sql .= ' 			SELECT id,';
+			$sql .= ' 				IF(url_editor="",0,1) AS url_editor,';
+			$sql .= ' 				IF(url="",0,1) AS url,';
+			$sql .= ' 				IF(kontak="",0,1) AS kontak,';
+			$sql .= ' 				IF(reviewer="",0,1) AS reviewer,';
+			$sql .= ' 				IF(statistik="",0,1) AS statistik,';
+			$sql .= ' 				IF(etika="",0,1) AS etika,';
+			$sql .= ' 				IF(indeksasi="",0,1) AS indeksasi,';
+			$sql .= ' 				IF(oai="",0,1) AS oai, ';
+			$sql .= ' 				IF(doi="",0,1) AS doi ';
+			$sql .= ' 		  FROM jurnal) AS tbl_view_1 )';
+			$sql .= ' 	) AS tbl_view_2)';
+			$sql .= ' WHERE jum=9';
+			
+			$query = $this->db->query($sql);
+			return $query->num_rows();
+		}
 
+		public function jurnal_tidak_lengkap(){
+			$sql  = ' SELECT id, jum ';
+			$sql .= ' FROM ((';
+			$sql .= ' 	SELECT id, (url_editor+url+kontak+reviewer+statistik+etika+indeksasi+oai+doi) AS jum ';
+			$sql .= ' 	FROM ((';
+			$sql .= ' 			SELECT id,';
+			$sql .= ' 				IF(url_editor="",0,1) AS url_editor,';
+			$sql .= ' 				IF(url="",0,1) AS url,';
+			$sql .= ' 				IF(kontak="",0,1) AS kontak,';
+			$sql .= ' 				IF(reviewer="",0,1) AS reviewer,';
+			$sql .= ' 				IF(statistik="",0,1) AS statistik,';
+			$sql .= ' 				IF(etika="",0,1) AS etika,';
+			$sql .= ' 				IF(indeksasi="",0,1) AS indeksasi,';
+			$sql .= ' 				IF(oai="",0,1) AS oai, ';
+			$sql .= ' 				IF(doi="",0,1) AS doi ';
+			$sql .= ' 		  FROM jurnal) AS tbl_view_1 )';
+			$sql .= ' 	) AS tbl_view_2)';
+			$sql .= ' WHERE jum<9';
+			
+			$query = $this->db->query($sql);
+			return $query->num_rows();
+		}		
+
+}
 
 
 // 'id','lisensi_id','frek_terbitan_id','waktu_review_id','nama','eissn','pissn','penerbit','open_akses','akre_sinta','nama_editor','telepon_editor','email_editor','url_editor','tahun_terbit','frek_terbit','provinsi','url','kontak','reviewer','statistik','etika','oai','doi'
