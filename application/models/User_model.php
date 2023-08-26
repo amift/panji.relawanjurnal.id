@@ -5,7 +5,7 @@ class User_model extends MY_Model {
     var $table    = 'user';
 
     var $column_order  = array(NULL,NULL,'username','name','email','telepon','provinsi_nama','institusi', 'is_verified', 'is_active', 'last_login'); 
-    var $column_search = array('username','name','email','telepon','provinsi_nama','institusi', 'is_verified', 'is_active', 'last_login'); 
+    var $column_search = array('username','name','email','telepon','provinsi_nama','institusi', 'is_verified', 'is_active', 'last_login','level'); 
     var $order         = array('id' => 'ASC');
 
 		public function __construct(){
