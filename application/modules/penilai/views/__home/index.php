@@ -10,32 +10,64 @@
                     </div>                      
                 </div>
                 <hr>
+
                 <div class="row">
-                    <div class="col-lg-3 col-xs-6">
-                      <div class="small-box bg-aqua">
-                        <div class="inner">
-                          <h3><?php echo $myjurnal; ?></h3>
-                          <p>Jurnal yang diajukan</p>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-calendar-o"></i></span>
+                        <div class="info-box-content">
+                          <span>Jumlah keseluruhan</span>
+                          <span class="info-box-number"><?php echo $jurnal ?></span>
                         </div>
-                        <div class="icon">
-                          <i class="fa fa-book"></i>
-                        </div>
-                        <a href="<?php echo base_url('penilai/jurnal') ?> " class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+                        <!-- /.info-box-content -->
                       </div>
+                      <!-- /.info-box -->
                     </div>
-                    <div class="col-lg-3 col-xs-6">
-                      <div class="small-box bg-green">
-                        <div class="inner">
-                          <h3><?php echo $jurnal_dinilai; ?></h3>
-                          <p>Jurnal yang telah dinilai</p>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                        <span class="info-box-icon bg-red"><i class="fa fa-calendar-times-o"></i></span>
+
+                        <div class="info-box-content">
+                          <span>Data tidak lengkap</span>
+                          <span class="info-box-number"><?php echo $jurnal_tidak_lengkap ?></span>
                         </div>
-                        <div class="icon">
-                          <i class="fa fa-book"></i>
-                        </div>
-                        <a href="<?php echo base_url('penilai/jurnal') ?> " class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+                        <!-- /.info-box-content -->
                       </div>
-                    </div>                 
-                </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- fix for small devices only -->
+                    <div class="clearfix visible-sm-block"></div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                        <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o"></i></span>
+
+                        <div class="info-box-content">
+                          <span>Data lengkap</span>
+                          <span class="info-box-number"><?php echo $jurnal_lengkap ?></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+
+                        <div class="info-box-content">
+                          <span>Telah dinilai</span>
+                          <span class="info-box-number"><?php echo $jurnal_dinilai ?></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>                
             </div>
         </div>
     </section>

@@ -18,19 +18,13 @@ class Jurnal extends MY_Controller {
 
       $this->load->model('Penilaian_model','m_penilaian');
       $this->load->model('Penilaian_logs_model','m_plogs');
-      $this->load->model('Lisensi_model','m_lisensi');
-      $this->load->model('Frekterbitan_model','m_frekterbitan');
-      $this->load->model('Waktureview_model','m_waktureview');
-      $this->load->model('Provinsi_model','m_provinsi');
+      $this->load->model('Jurnal_model','m_jurnal');
     }
 
-		public function index(){			
-			$invoke['arr_lisensi']       = $this->m_lisensi->get_data_as_array('-- Lisensi --','id, nama as name');
-			$invoke['arr_frek_terbitan'] = $this->m_frekterbitan->get_data_as_array('-- Frekuensi Terbitan --','id, nama as name');
-			$invoke['arr_waktu_review']  = $this->m_waktureview->get_data_as_array('-- Waktu Review --','id, nama as name');
-			$invoke['arr_provinsi']      = $this->m_provinsi->get_data_as_array('-- Provinsi --','id, name');
-			$invoke['arr_akre_sinta']    = ['' => '-- SINTA --','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','0'=>'TIDAK ADA'];
-			
+		public function index(){
+			$invoke['jurnal']     						=  $this->m_jurnal->get_rows([ 'review_by' => $this->session->userdata('ses_id') ]);
+			$invoke['jurnal_dinilai']     		=  $this->m_jurnal->get_rows(['status' => '1',
+																																			'review_by' => $this->session->userdata('ses_id')]);
 
 			$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 			$invoke['jsfile']       = 'index_js.php';
@@ -39,7 +33,8 @@ class Jurnal extends MY_Controller {
 
 		public function list(){
 	      if ($this->input->is_ajax_request()) {
-						$list = $this->m_data->get_datatables('user_id='.$this->session->userdata('ses_id'));
+	      		$this->m_data->owner = 'review_by = '.$this->session->userdata('ses_id');
+						$list = $this->m_data->get_datatables();
 						// debugme($this->db->last_query());
 						$data = array();
 						foreach ($list as $db_data) {
