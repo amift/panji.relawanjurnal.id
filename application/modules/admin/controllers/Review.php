@@ -22,6 +22,7 @@ class Review extends MY_Controller {
     }
 
 		public function index(){
+			redirect('admin',true);
 			// info top
 			$invoke['jurnal']     =  $this->m_data->get_rows();
 			$invoke['jurnal_dinilai']     =  $this->m_data->get_rows(['status' => '1']);			
