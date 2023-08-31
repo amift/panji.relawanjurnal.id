@@ -153,7 +153,7 @@ class Jurnal extends MY_Controller {
 						'diver_dewan_redaksi' => html_escape($this->input->post('input_diver_dewan_redaksi')),
 						'sitasi' => html_escape($this->input->post('input_sitasi')),
 						'inovasi' => html_escape($this->input->post('input_inovasi')),
-						'catatan' => html_escape($this->input->post('input_catatan')),
+						'catatan' => $this->input->post('input_catatan'),
 		    	);
 					$this->m_penilaian->update($data_penilaian,['jurnal_id' => $jurnal_id]);
 
