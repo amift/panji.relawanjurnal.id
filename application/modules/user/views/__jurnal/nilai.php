@@ -1,7 +1,4 @@
 <?php $this->load->view('tpl_header'); ?>
-<?php $this->load->view('tpl_navbar'); ?>
-<?php $this->load->view('tpl_sidebar'); ?>
-
 
 <div class="content-wrapper">
     <section class="content-header">

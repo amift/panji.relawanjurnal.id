@@ -45,7 +45,8 @@ class Jurnal_model extends MY_Model {
 											j.indeksasi, 
 											j.oai, 
 											j.doi,
-											j.sitasi';
+											j.sitasi,
+											j.status';
 			$sql .= ' FROM jurnal j ';
 			$sql .= ' LEFT JOIN user u ON u.id = j.user_id';
 			$sql .= ' LEFT JOIN lisensi l ON l.id = j.lisensi_id';
@@ -55,13 +56,14 @@ class Jurnal_model extends MY_Model {
 			if (!empty($this->owner)) {
 				$sql .= ' WHERE '.$this->owner;
 			}
+
 			$sql .= ' ) AS sql_view';		
 
 			return $sql;		
 		}
 
 		public function query_data(){	
-			$sql  = ' SELECT id, user_id, user_nama,user_foto, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi, sitasi';
+			$sql  = ' SELECT id, user_id, user_nama, user_foto, lisensi_id, frek_terbitan_id, waktu_review_id, provinsi_id, lisensi_nama, frek_terbitan_nama, waktu_review_nama, provinsi_nama, nama, eissn, pissn, penerbit, akre_sinta, nama_editor, telepon_editor, email_editor, url_editor, tahun_terbit, url, kontak, reviewer, statistik, indeksasi, etika, oai, doi, sitasi, status';
 			$sql .= ' FROM '.$this->sql_view();
 			return $sql;		
 		}

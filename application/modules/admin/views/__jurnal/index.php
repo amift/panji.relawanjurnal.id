@@ -10,7 +10,7 @@
         <small>List Jurnal</small>
       </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i> User</li>
+        <li><i class="fa fa-dashboard"></i> Admin</li>
         <li>Jurnal</li>
       </ol>
     </section>      
@@ -71,7 +71,7 @@
               <!-- /.info-box -->
             </div>
             <!-- /.col -->
-          </div>
+        </div>
         <div class="panel panel-default wrap-table">
             <div class="panel-body">
                 <table class="table table-striped table-bordered" id="data_table">

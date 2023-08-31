@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Jurnal extends MY_Controller {
+class Review extends MY_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -18,27 +18,17 @@ class Jurnal extends MY_Controller {
 
 			$this->load->model('Penilaian_model','m_penilaian');
       $this->load->model('Penilaian_logs_model','m_plogs');
-      $this->load->model('Lisensi_model','m_lisensi');
-      $this->load->model('Frekterbitan_model','m_frekterbitan');
-      $this->load->model('Waktureview_model','m_waktureview');
-      $this->load->model('Provinsi_model','m_provinsi');
+      $this->load->model('User_model','m_user');
     }
 
 		public function index(){
 			// info top
 			$invoke['jurnal']     =  $this->m_data->get_rows();
+			$invoke['jurnal_dinilai']     =  $this->m_data->get_rows(['status' => '1']);			
 			$invoke['jurnal_lengkap']     =  $this->m_data->jurnal_lengkap();
 			$invoke['jurnal_tidak_lengkap']     =  $this->m_data->jurnal_tidak_lengkap();
-			$invoke['jurnal_dinilai']     =  $this->m_data->get_rows(['status' => '1']);
 
-
-			// arrya combo data
-			$invoke['arr_lisensi']       = $this->m_lisensi->get_data_as_array('-- Lisensi --','id, nama as name');
-			$invoke['arr_frek_terbitan'] = $this->m_frekterbitan->get_data_as_array('-- Frekuensi Terbitan --','id, nama as name');
-			$invoke['arr_waktu_review']  = $this->m_waktureview->get_data_as_array('-- Waktu Review --','id, nama as name');
-			$invoke['arr_provinsi']      = $this->m_provinsi->get_data_as_array('-- Provinsi --','id, name');
-			$invoke['arr_akre_sinta']    = ['' => '-- SINTA --','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','0'=>'TIDAK ADA'];
-			
+			$invoke['penilai']     =  $this->m_user->getme();
 
 			$invoke['baseurl']      = base_url($this->modul.'/'.$this->class);
 			$invoke['jsfile']       = 'index_js.php';
@@ -53,33 +43,17 @@ class Jurnal extends MY_Controller {
 							$row     = array();
 							$row[]   = '';
 
-							$url        = ($db_data->url)?'<a target="_blank" href="'.$db_data->url.'"><i class="fa fa-globe"></i> URL Jurnal</a>':'URL Jurnal [kosong]';
-							$url_editor = ($db_data->url_editor)?'<a target="_blank" href="'.$db_data->url_editor.'"><i class="fa fa-globe"></i> URL Editor</a>':'URL Editor [kosong]';
-							$kontak     = ($db_data->kontak)?'<a target="_blank" href="'.$db_data->kontak.'"><i class="fa fa-globe"></i> URL Kontak</a>':'URL Kontak [kosong]';
-							$reviewer   = ($db_data->reviewer)?'<a target="_blank" href="'.$db_data->reviewer.'"><i class="fa fa-globe"></i> URL Reviewer</a>':'URL Reviewer [kosong]';
-							$statistik  = ($db_data->statistik)?'<a target="_blank" href="'.$db_data->statistik.'"><i class="fa fa-globe"></i> URL Statistik</a>':'URL Statistik [kosong]';
-							$etika      = ($db_data->etika)?'<a target="_blank" href="'.$db_data->etika.'"><i class="fa fa-globe"></i> URL Etika</a>':'URL Etika [kosong]';
-							$indeksasi  = ($db_data->indeksasi)?'<a target="_blank" href="'.$db_data->indeksasi.'"><i class="fa fa-globe"></i> URL Indeksasi</a>':'URL Indeksasi [kosong]';
-							$oai        = ($db_data->oai)?'<a target="_blank" href="'.$db_data->oai.'"><i class="fa fa-globe"></i> URL oai</a>':'URL oai [kosong]';
-							$doi        = ($db_data->doi)?'<a target="_blank" href="'.$db_data->doi.'"><i class="fa fa-globe"></i> URL Doi</a>':'URL Doi [kosong]';
-
 							$secure_id = $this->mfcrypt->encrypt($db_data->id);
 							$penilaian = $this->m_plogs->get_rows(['jurnal_id' => $db_data->id]);
 
 
-								$row[]   = '<div class="text-center">
+							$row[]   = '<div class="text-center">
 													<div class="text-center">
 														<a href="'.base_url('admin/jurnal/nilai/').$secure_id.'" class="btn btn-app">
 														   <span class="badge bg-green">'.$penilaian.'</span>
 														   <i class="fa fa-eye"></i> Lihat Penilaian
 														</a>												
 											</div>';
-
-
-							$row[]   = '<div class="text-center">
-														  <img id="foto" width="120" class="img-responsive center-block rounded-circle img-thumbnail shadow" src="'.IMG_URL.$db_data->user_foto.'" alt=""><br>
-														  '.$db_data->user_nama.'
-												  </div>';
 							$row[]   = '<div>
 														  <b>Nama Jurnal : </b>'.$db_data->nama.'<br>
 														  <b>E-ISSN : </b>'.$db_data->eissn.'<br>
@@ -92,22 +66,6 @@ class Jurnal extends MY_Controller {
 														  <b>Waktu review : </b>'.$db_data->waktu_review_nama.'<br>
 														  <b>Akreditasi SINTA : </b>'.$db_data->akre_sinta.'<br>
 														  <b>Sitasi Artikel : </b>'.$db_data->sitasi.'<br>
-												  </div>';
-							$row[]   = '<div>
-															<b>Nama editor : </b>'.$db_data->nama_editor.'<br>
-															<b>Telepon_editor : </b>'.$db_data->telepon_editor.'<br>
-															<b>Email editor : </b>'.$db_data->email_editor.'<br>
-												  </div>';
-							$row[]   = '<div>
-															'.$url.'<br>
-															'.$url_editor.'<br>
-															'.$kontak.' <br>
-															'.$reviewer.'<br>
-															'.$statistik.'<br>
-															'.$etika.'<br>
-															'.$indeksasi.'<br>
-															'.$oai.'<br>
-															'.$doi.'<br>															
 												  </div>';
 							$data[]  = $row;
 						}

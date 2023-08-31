@@ -41,6 +41,11 @@ class User_model extends MY_Model {
 			return $sql;
 		}
 
+		function getme(){
+      $query = $this->db->from($this->table);
+      return $query->result();
+		}
+
 		public function get_it_all($keyword){
 	    if ($keyword!=null) {
 	        $this->db->where($keyword);

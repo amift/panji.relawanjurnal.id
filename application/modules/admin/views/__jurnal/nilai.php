@@ -154,7 +154,7 @@
                                     <dt>Sitasi artikel</dt><dd><?php echo $penilaian->sitasi ?></dd>
                                     <hr>
                                     <dt>Inovasi</dt><dd><?php echo $penilaian->inovasi ?></dd>
-                                    <dt>Catatan</dt><dd><?php echo $penilaian->catatan ?></dd>
+                                    <dt>Catatan</dt><dd><?php echo nl2br($penilaian->catatan) ?></dd>
                                 </dl>
                             </div>
                         </div>

@@ -16,7 +16,7 @@
                 <li><a href="<?php echo base_url('admin')?>"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                 <li class="header" style="color:#ffff00">Data</li>
                 <li><a href="<?php echo base_url('admin/jurnal')?>"><i class="fa fa-book"></i> <span>Jurnal</span></a></li>
-                <li><a href="<?php echo base_url('admin/reviewer')?>"><i class="fa fa-users"></i> <span>Reviewer</span></a></li>
+                <li><a href="<?php echo base_url('admin/review')?>"><i class="fa fa-users"></i> <span>Reviewer Jurnal</span></a></li>
                 <li class="header" style="color:#ffff00">Master</li>
                 <li><a href="<?php echo base_url('admin/provinsi')?>"><i class="fa fa-map-marker"></i> <span>Provinsi</span></a></li>
                 <!-- <li><a href="<?php echo base_url('admin/indeksasi')?>"><i class="fa fa-tags"></i> <span>Indeksasi</span></a></li> -->
