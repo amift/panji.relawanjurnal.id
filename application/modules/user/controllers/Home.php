@@ -17,6 +17,9 @@ class Home extends MY_Controller {
     }
 
 	public function index(){
+		$invoke['jurnal']     						=  $this->m_jurnal->get_rows([ 'user_id' => $this->session->userdata('ses_id') ]);
+		$invoke['jurnal_dinilai']     		=  $this->m_jurnal->get_rows(['status' => '1',
+																																	'user_id' => $this->session->userdata('ses_id')]);		
 
 		$invoke['myjurnal']     =  $this->m_jurnal->get_rows(['user_id' => $this->session->userdata('ses_id')]);
 
