@@ -31,7 +31,7 @@ class Review extends MY_Controller {
         foreach ($reviewer as $key) {
           echo '<tr>';
           echo ' <td>'.$no++.'</td>';
-          echo ' <td style="width:370px">'.$key->user_name.'</td>';
+          echo ' <td style="width:370px">'.$key->user_name.'<br>'.$key->provinsi_nama.'</td>';
           echo ' <td class="text-center">'.$key->all_jurnal.'</td>';
           echo ' <td class="text-center">
 									<a href="#" style="width:30px" class="infoDone btn btn-primary btn-xs" data-user_id="'.$key->user_id.'">
@@ -77,6 +77,21 @@ class Review extends MY_Controller {
 
 		public function retrieve_info_notyet($id){
 			$jurnal = $this->m_reviewer->get_info_notyet($id);
+			$reviewer = $this->m_reviewer->get_reviewer($id);
+			$person = '';
+			$x=0;
+			foreach ($reviewer as $key) {
+					$x++;
+					if ( $x % 4 == 0 ){
+						$person .= '<a href="#" id="assigment'.$id.$key->id.'999" style="border:1px solid blue" class="assigment btn btn-default btn-xs" 
+													data-requires="'.$id.';'.$key->id.';999'.'">'.$key->name.'
+												</a><br>';
+					}else{
+						$person .= '<a href="#" id="assigment'.$id.$key->id.'999" style="border:1px solid blue" class="assigment btn btn-default btn-xs" 
+													data-requires="'.$id.';'.$key->id.';999'.'">'.$key->name.'
+												</a> ';
+					}
+			}
 			if ( empty($jurnal) ) {
         echo '<br>';
         echo '<div class="alert alert-danger">';
@@ -93,9 +108,13 @@ class Review extends MY_Controller {
 				echo '		<tbody>';
         $no=1;
         foreach ($jurnal as $key) {
+        	$new_assign=str_replace('999', $key->id, $person);
           echo '<tr>';
           echo ' <td>'.$no++.'</td>';
-          echo ' <td><a href="'.$key->url.'" target="_blank">'.$key->nama.'</a><br>'.$key->provinsi_nama.'</td>';
+          echo ' <td>
+          				<a href="'.$key->url.'" target="_blank">'.$key->nama.'</a><br>'.$key->provinsi_nama.
+          		 '  <br><br>Reassignment jurnal review from <div style="border:1px solid red" class="btn btn-default btn-xs disabled">'.$key->user_nama.'</div> to <br>'.$new_assign.
+          		 '</td>';
           echo '</tr>';
         }
 				echo '		</tbody>';
@@ -103,4 +122,10 @@ class Review extends MY_Controller {
 			}	
 		}
 
+		public function reassigment(){
+			$idfrom = $this->input->post('idfrom');
+			$idto = $this->input->post('idto');
+			$idjurnal = $this->input->post('idjurnal');
+			$this->m_reviewer->do_reassigment($idfrom, $idto, $idjurnal);
+		}
 }
