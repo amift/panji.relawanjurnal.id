@@ -19,36 +19,35 @@
             <div class="col-md-5 col-sm-5 col-xs-5">
               <div class="panel panel-default wrap-table">
                   <div class="panel-body">
+                    <h3>Reviewer dan Jurnal</h3>
                     <table class="table table-striped table-hover">
                       <thead>
                         <tr>
                           <th>No</th>
                           <th>Reviewer</th>
-                          <th>Jurnal</th>
-                          <th>Dinilai</th>
-                          <th>Belum</th>
+                          <th class="text-center">Jurnal</th>
+                          <th class="text-center">Dinilai</th>
+                          <th class="text-center">Belum</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>                    
-                          <?php 
-                            $no=1;              
-                            foreach ($reviewer as $key) {
-                              echo '<tr>';
-                              echo ' <td>'.$no++.'</td>';
-                              echo ' <td style="width:370px">'.$key->name.'</td>';
-                              echo ' <td>'.$key->all_jurnal.'</td>';
-                              echo ' <td>'.$key->j_done.'</td>';
-                              echo ' <td>'.$key->j_notyet.'</td>';
-                              echo '</tr>';
-                            }
-                          ?>
-                        </tr>
+                      <tbody class="get_info">
                       </tbody>
                     </table> 
                   </div>
               </div>        
-            </div>          
+            </div>            
+            <div class="col-md-7 col-sm-7 col-xs-7">
+              <div class="panel panel-default wrap-table">
+                  <div class="panel-body">
+                      <h3 class="caption_info"></h3>
+                      <div class="place_info_detail">
+                        <div class="alert alert-info">
+                          <strong>Informasi jumlah jurnal akan tampil disini!</strong>
+                        </div>
+                      </div>
+                  </div>
+              </div>        
+            </div>            
         </div>
     </section>           
 </div>
