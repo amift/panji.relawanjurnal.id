@@ -19,7 +19,8 @@
             <ul>
               <li><i class="fa fa-phone"></i> </li>
               <li><a href="#"><i class="fa fa-envelope-o"></i> contact@relwanjurnal.id</a></li>
-              <li><i class="fa fa-flag"></i> Gang Masjid Al Huda II, RT 01 RW 18, Gamping Kidul, Ambarketawang, Kec Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55294</li>
+              <li><i class="fa fa-flag"></i> 
+Ruko Permai, Pd. Permai Taman Tirta 2 Jl. Raya Bibis, Ngentak, Bangunjiwo, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55184</li>
             </ul>
           </div>
         </div>
